@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.util.WPILibVersion;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbSubsystem extends SubsystemBase {
-  //will be replaced with robot map
-  int noRobotMap;
+  //replace with CAN or PWM identifier
+  int unknownPort;
   
 
   private WPI_TalonSRX climbMotor;
@@ -22,14 +22,14 @@ public class ClimbSubsystem extends SubsystemBase {
    * Creates a new ClimbSubsystem.
    */
   public ClimbSubsystem() {
-    climbMotor = new WPI_TalonSRX(noRobotMap);
+    climbMotor = new WPI_TalonSRX(unknownPort);
 
   }
-
+/*
   public void TestMethod() {
     climbMotor.set(1);
   }
-
+*/
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
