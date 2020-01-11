@@ -13,13 +13,13 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Ultrasonic;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants;
 import frc.robot.commands.TeleopDriveCommand;
 import frc.robot.teamlibraries.DriveInputPipeline;
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 public class DriveSubsystem extends SubsystemBase {
   /**
@@ -29,7 +29,7 @@ public class DriveSubsystem extends SubsystemBase {
   private WPI_TalonSRX leftDriveMotor2;
   private WPI_TalonSRX rightDriveMotor1;
   private WPI_TalonSRX rightDriveMotor2;
-  private RobotDrive robotDrive;
+  private DifferentialDrive robotDrive;
   
   private Encoder leftDriveEncoder;
   private Encoder rightDriveEncoder;
@@ -45,9 +45,11 @@ public class DriveSubsystem extends SubsystemBase {
   public DriveSubsystem() {
     leftDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
     leftDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_LEFT_B_TALON_SRX_ID);
+    SpeedControllerGroup leftDriveMotors = new SpeedControllerGroup(leftDriveMotor1, leftDriveMotor2);
     rightDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_RIGHT_A_TALON_SRX_ID);
     rightDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_RIGHT_B_TALON_SRX_ID);
-    robotDrive = new RobotDrive(leftDriveMotor1, leftDriveMotor2, rightDriveMotor1, rightDriveMotor2);
+    SpeedControllerGroup rightDriveMotors = new SpeedControllerGroup(rightDriveMotor1, rightDriveMotor2);
+    robotDrive = new DifferentialDrive(leftDriveMotors, rightDriveMotors);
 
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
@@ -55,10 +57,12 @@ public class DriveSubsystem extends SubsystemBase {
     driveAccel = new BuiltInAccelerometer();
     frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
     backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
-
+rt edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Ultrasonic;
+import frc.robot.Constants;
     leftDriveMotor2.follow(leftDriveMotor1);
     rightDriveMotor2.follow(rightDriveMotor1);
-
     setLeftBrakemode(false);
     setRightBrakemode(false);
 
@@ -330,5 +334,3 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new TeleopDriveCommand());
-  }
-}
