@@ -13,13 +13,21 @@ import edu.wpi.first.wpilibj.util.WPILibVersion;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbSubsystem extends SubsystemBase {
-  int deviceNumber;
-  private WPI_TalonSRX ClimbMotor;
+  //will be replaced with robot map
+  int noRobotMap;
+  
+
+  private WPI_TalonSRX climbMotor;
   /**
    * Creates a new ClimbSubsystem.
    */
   public ClimbSubsystem() {
-    
+    climbMotor = new WPI_TalonSRX(noRobotMap);
+
+  }
+
+  public void TestMethod() {
+    climbMotor.set(1);
   }
 
   @Override
