@@ -57,10 +57,7 @@ public class DriveSubsystem extends SubsystemBase {
     driveAccel = new BuiltInAccelerometer();
     frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
     backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
-rt edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Ultrasonic;
-import frc.robot.Constants;
+
     leftDriveMotor2.follow(leftDriveMotor1);
     rightDriveMotor2.follow(rightDriveMotor1);
     setLeftBrakemode(false);
@@ -334,3 +331,5 @@ import frc.robot.Constants;
   public void periodic() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new TeleopDriveCommand());
+  }
+}
