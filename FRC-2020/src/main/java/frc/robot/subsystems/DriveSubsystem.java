@@ -45,11 +45,13 @@ public class DriveSubsystem extends SubsystemBase {
   public DriveSubsystem() {
     leftDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
     leftDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_LEFT_B_TALON_SRX_ID);
-    SpeedControllerGroup leftDriveMotors = new SpeedControllerGroup(leftDriveMotor1, leftDriveMotor2);
     rightDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_RIGHT_A_TALON_SRX_ID);
     rightDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_RIGHT_B_TALON_SRX_ID);
-    SpeedControllerGroup rightDriveMotors = new SpeedControllerGroup(rightDriveMotor1, rightDriveMotor2);
-    robotDrive = new DifferentialDrive(leftDriveMotors, rightDriveMotors);
+
+    leftDriveMotor2.follow(leftDriveMotor1);
+    rightDriveMotor2.follow(rightDriveMotor1);
+
+    robotDrive = new DifferentialDrive(leftDriveMotor1, rightDriveMotor1);
 
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
@@ -58,8 +60,6 @@ public class DriveSubsystem extends SubsystemBase {
     frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
     backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
 
-    leftDriveMotor2.follow(leftDriveMotor1);
-    rightDriveMotor2.follow(rightDriveMotor1);
     setLeftBrakemode(false);
     setRightBrakemode(false);
 
