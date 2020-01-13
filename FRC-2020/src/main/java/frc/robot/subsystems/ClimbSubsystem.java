@@ -7,29 +7,33 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.util.WPILibVersion;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class ClimbSubsystem extends SubsystemBase {
-  //replace with CAN or PWM identifier
-  int unknownPort;
-  
-
   private WPI_TalonSRX climbMotor;
-  /**
-   * Creates a new ClimbSubsystem.
-   */
+
+  private Encoder climbEncoder;
+  
   public ClimbSubsystem() {
-    climbMotor = new WPI_TalonSRX(unknownPort);
+    climbMotor = new WPI_TalonSRX(Constants.CLIMBER_TALON_SRX_ID);
 
   }
-/*
-  public void TestMethod() {
-    climbMotor.set(1);
+  public void SetClimb(double motorValue) {
+    climbMotor.set(ControlMode.PercentOutput, motorValue);
+      
   }
-*/
+
+  
+  public Encoder getClimbEncoder() {
+    return climbEncoder;
+  }
+
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
