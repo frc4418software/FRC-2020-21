@@ -16,6 +16,7 @@ public class ToggleArcadeDriveCommand extends CommandBase {
    */
   public ToggleArcadeDriveCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.driveSubsystem);
   }
 
   // Called when the command is initially scheduled.
