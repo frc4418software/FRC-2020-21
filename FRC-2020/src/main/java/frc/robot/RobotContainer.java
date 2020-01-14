@@ -32,8 +32,8 @@ public class RobotContainer {
   
   // Create joysticks
   private static final Joystick X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
-                                X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID)// ,
-                                /*GAMEPAD = new Joystick(Constants.GAMEPAD_JOYSTICK_ID)*/;
+                                X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID) ,
+                                GAMEPAD = new Joystick(Constants.GAMEPAD_JOYSTICK_ID);
   
   // Get axis for specific functions
   public static double getLeftTankDriveAxis() {
@@ -48,6 +48,9 @@ public class RobotContainer {
   }
   public static double getAngleArcadeDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.ANGLE_ARCADE_DRIVE_AXIS_ID);
+  }
+  public static double getClimberAxis() {
+    return GAMEPAD.getRawAxis(Constants.CLIMB_AXIS_ID);
   }
 
   // Create and assign default buttons

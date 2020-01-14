@@ -18,8 +18,8 @@ package frc.robot;
 public final class Constants {
     // Controller abstractions
   private static final int //GAMEPAD_AXIS_LEFT_X = 0, // Gamepad axis
-  /*GAMEPAD_AXIS_LEFT_Y = 1,
-  GAMEPAD_AXIS_RIGHT_X = 4,
+  GAMEPAD_AXIS_LEFT_Y = 1,
+  /*GAMEPAD_AXIS_RIGHT_X = 4,
   GAMEPAD_AXIS_RIGHT_Y = 5,
   GAMEPAD_AXIS_LEFT_TRIGGER = 2,
   GAMEPAD_AXIS_RIGHT_TRIGGER = 3,
@@ -61,13 +61,14 @@ public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   FORWARD_ARCADE_DRIVE_AXIS_ID = X3D_AXIS_PITCH, // Arcade drive axis
   ANGLE_ARCADE_DRIVE_AXIS_ID = X3D_AXIS_ROLL,
   TOGGLE_ARCADE_DRIVE_BUTOON_ID = X3D_BUTTON_5,
-  DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP;
+  DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP,
+  CLIMB_AXIS_ID = GAMEPAD_AXIS_LEFT_Y;
 
 // Drive Subsystem IDs
 public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10, 
   DRIVE_LEFT_B_TALON_SRX_ID = 11,
   DRIVE_RIGHT_A_TALON_SRX_ID = 20, 
-  DRIVE_RIGHT_B_TALON_SRX_ID = 21, 
+  DRIVE_RIGHT_B_TALON_SRX_ID = 21,
   DRIVE_LEFT_ENCODER_CHANNELA_ID = 6, 
   DRIVE_LEFT_ENCODER_CHANNELB_ID = 7, 
   DRIVE_RIGHT_ENCODER_CHANNELA_ID = 8, 
@@ -79,6 +80,11 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
   DRIVE_BACK_DISTANCE_ECHO_ID = 13;
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
 
+// Climb Subsystem IDs
+public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 
+  CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
+  CLIMBER_TALON_SRX_ID = 30;
+//public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = ;          tbd
 
 // RIO Post Info
 public static int[] expectedTalonIDs = {DRIVE_LEFT_A_TALON_SRX_ID, DRIVE_LEFT_B_TALON_SRX_ID, DRIVE_RIGHT_A_TALON_SRX_ID, 
