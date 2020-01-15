@@ -162,7 +162,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   // standard arcade drive with directional toggle
   public void arcadeDrive(double forwardValue, double angleValue) {
-    robotDrive.arcadeDrive(-forwardValue, -angleValue);
+    robotDrive.arcadeDrive(-forwardValue, angleValue);
     
   }
 
