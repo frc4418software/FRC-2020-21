@@ -7,12 +7,13 @@
 
 package frc.robot;
 
+import java.io.IOException;
 import java.util.List;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.controller.RamseteController;
 import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
@@ -25,10 +26,9 @@ import edu.wpi.first.wpilibj.trajectory.constraint.DifferentialDriveVoltageConst
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RamseteCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.*;
+import frc.robot.commands.DriveStraightCommand;
+import frc.robot.commands.ToggleArcadeDriveCommand;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.Constants;
-//import frc.robot.subsystems.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -44,6 +44,7 @@ public class RobotContainer {
 
   // private final ExampleCommand m_autoCommand = new
   // ExampleCommand(m_exampleSubsystem);
+  private DriveSubsystem drive = new DriveSubsystem();
 
   // Create joysticks
   private static final Joystick X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
@@ -136,9 +137,21 @@ public class RobotContainer {
     );
 
     
-    return null;
+
+    RamseteCommand ramseteCommand = new RamseteCommand(
+      exampleTrajectory, 
+      drive::getPose, 
+      new RamseteController(Constants.kRamseteB, Constants.kRamseteZeta), 
+      new SimpleMotorFeedforward(Constants.ksVolts, Constants.kvVoltSecondsPerMeter, Constants.kaVoltSecondsSquaredPerMeter), 
+      Constants.kDriveKinematics, 
+      drive::getWheelSpeeds, 
+      new PIDController(Constants.kPDriveVel, 0, 0), 
+      new PIDController(Constants.kPDriveVel, 0, 0),
+      drive::driveVolts, 
+      Robot.driveSubsystem);
+    
 
     // Run path following command, then stop at the end.
-    //return ramseteCommand.andThen(() -> m_robotDrive.tankDriveVolts(0, 0));
+    return ramseteCommand.andThen(() -> Robot.driveSubsystem.driveVolts(0, 0));
   }
 }

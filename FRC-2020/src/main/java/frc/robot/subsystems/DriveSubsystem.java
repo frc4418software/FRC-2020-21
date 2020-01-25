@@ -8,6 +8,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import java.util.function.BiConsumer;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -45,9 +48,9 @@ public class DriveSubsystem extends SubsystemBase {
   private Ultrasonic frontDriveDistance;
   private Ultrasonic backDriveDistance;
 
+  private boolean arcadeDrive = false;
   private final DifferentialDriveOdometry odometry;
 
-  private boolean arcadeDrive = false;
   public DriveSubsystem() {
     leftDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
     leftDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_LEFT_B_TALON_SRX_ID);
@@ -56,6 +59,8 @@ public class DriveSubsystem extends SubsystemBase {
 
     leftDriveMotor2.follow(leftDriveMotor1);
     rightDriveMotor2.follow(rightDriveMotor1);
+
+
 
     odometry = new DifferentialDriveOdometry(Rotation2d.fromDegrees(getGyroValue()));
 
@@ -247,7 +252,15 @@ public class DriveSubsystem extends SubsystemBase {
   public void resetGyro(){
     driveGyro.calibrate();
   }
-
+  
+  
+  
+  //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto mode but can be used in tank)
+  public void driveVolts(double leftVolts, double rightVolts) {
+    leftDriveMotor1.setVoltage(leftVolts);
+    rightDriveMotor1.setVoltage(-rightVolts);
+    robotDrive.feed();
+  }
 
 
 
