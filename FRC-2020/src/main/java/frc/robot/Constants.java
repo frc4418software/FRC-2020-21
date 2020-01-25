@@ -7,13 +7,17 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
+
 /**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants.  This class should not be used for any other purpose.  All constants should be
- * declared globally (i.e. public static).  Do not put anything functional in this class.
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
  *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
     // Controller abstractions
@@ -33,11 +37,11 @@ public final class Constants {
   GAMEPAD_BUTTON_START = 8,
   GAMEPAD_BUTTON_LOGITECH = 9,
   GAMEPAD_BUTTON_LEFT_JS = 10,
-  GAMEPAD_BUTTON_RIGHT_JS = 11,*/
+  GAMEPAD_BUTTON_RIGHT_J = 11,*/
   X3D_AXIS_PITCH = 1, // X3d axis
   X3D_AXIS_ROLL = 0,
   /*X3D_AXIS_YAW = 2,
-  X3D_AXIS_OTHER = 3,
+  X3D_AXIS_SLIDER = 3,
   X3D_BUTTON_TRIGGER = 1, // X3d buttons
   */X3D_BUTTON_GRIP = 2,/*
   X3D_BUTTON_3 = 3,
@@ -78,6 +82,14 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
   DRIVE_FRONT_DISTANCE_ECHO_ID = 11, 
   DRIVE_BACK_DISTANCE_PING_ID = 12, 
   DRIVE_BACK_DISTANCE_ECHO_ID = 13;
+public static final double ksVolts = 1.0;
+public static final double kvVoltSecondsPerMeter = 1.0;
+public static final double kaVoltSecondsSquaredPerMeter = 1.0;
+public static final double kPDriveVel = 1.0;
+public static final double kTrackwidthMeters = 1.0;
+public static final double kMaxSpeedMetersPerSecond = 1.0;
+public static final double kMaxAccelerationMetersPerSecondSquared = 1.0;
+public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackwidthMeters);
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
 
 // Climb Subsystem IDs

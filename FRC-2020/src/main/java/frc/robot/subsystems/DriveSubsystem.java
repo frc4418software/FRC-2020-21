@@ -16,6 +16,10 @@ import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.geometry.Pose2d;
+import edu.wpi.first.wpilibj.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
+import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds;
 import frc.robot.Constants;
 import frc.robot.commands.TeleopDriveCommand;
 import frc.robot.teamlibraries.DriveInputPipeline;
@@ -41,6 +45,8 @@ public class DriveSubsystem extends SubsystemBase {
   private Ultrasonic frontDriveDistance;
   private Ultrasonic backDriveDistance;
 
+  private final DifferentialDriveOdometry odometry;
+
   private boolean arcadeDrive = false;
   public DriveSubsystem() {
     leftDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
@@ -50,6 +56,8 @@ public class DriveSubsystem extends SubsystemBase {
 
     leftDriveMotor2.follow(leftDriveMotor1);
     rightDriveMotor2.follow(rightDriveMotor1);
+
+    odometry = new DifferentialDriveOdometry(Rotation2d.fromDegrees(getGyroValue()));
 
     robotDrive = new DifferentialDrive(leftDriveMotor1, rightDriveMotor1);
 
@@ -321,6 +329,23 @@ public class DriveSubsystem extends SubsystemBase {
     backDriveDistance.setEnabled(enable);
   }
 
+  public double getAverageEncoderDistance() {
+    return (leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance())/2.0;
+  }
+
+  public DifferentialDriveWheelSpeeds getWheelSpeeds() {
+    return new DifferentialDriveWheelSpeeds(leftDriveEncoder.getRate(), rightDriveEncoder.getRate());
+  }
+
+  public Pose2d getPose() {
+    return odometry.getPoseMeters();
+  }
+
+  public void resetOdometry(Pose2d pose) {
+    resetEncoders();
+    odometry.resetPosition(pose, Rotation2d.fromDegrees(getGyroValue()));
+  }
+
 
 
 
@@ -331,5 +356,6 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new TeleopDriveCommand());
+    odometry.update(Rotation2d.fromDegrees(getGyroValue()), leftDriveEncoder.getDistance(), rightDriveEncoder.getDistance());
   }
 }
