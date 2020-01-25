@@ -6,8 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
-import java.io.IOException;
 import java.util.List;
 
 import edu.wpi.first.wpilibj.GenericHID;
