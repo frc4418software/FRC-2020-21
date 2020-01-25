@@ -252,10 +252,8 @@ public class DriveSubsystem extends SubsystemBase {
   public void resetGyro(){
     driveGyro.calibrate();
   }
-  
-  
-  
-  //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto mode but can be used in tank)
+
+  //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto)
   public void driveVolts(double leftVolts, double rightVolts) {
     leftDriveMotor1.setVoltage(leftVolts);
     rightDriveMotor1.setVoltage(-rightVolts);
