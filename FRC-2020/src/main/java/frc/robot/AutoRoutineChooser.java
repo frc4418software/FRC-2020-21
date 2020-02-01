@@ -113,9 +113,9 @@ public class AutoRoutineChooser {
 
         //assumed to be right in front of low goal, just drives forward into shooting distance
         centerPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
-            // Start at the origin facing the +X direction
+            // Start at the origin facing the +X direction (facing goal)
             new Pose2d(0, 0, new Rotation2d(0)),
-            // rotates 180 degrees then moves into shooting distance
+            // moves into shooting distance
             List.of(
                 new Translation2d((SHOOTINGDISTANCELOW+.4394), 0)
             ),
