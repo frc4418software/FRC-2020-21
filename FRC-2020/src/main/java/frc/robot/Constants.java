@@ -8,7 +8,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
-import edu.wpi.first.wpilibj.trajectory.Trajectory;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -83,28 +82,19 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
   DRIVE_FRONT_DISTANCE_ECHO_ID = 11, 
   DRIVE_BACK_DISTANCE_PING_ID = 12, 
   DRIVE_BACK_DISTANCE_ECHO_ID = 13;
-public static final double ksVolts = 1.0;
-public static final double kvVoltSecondsPerMeter = 1.0;
-public static final double kaVoltSecondsSquaredPerMeter = 1.0;
-public static final double kPDriveVel = 1.0;
-public static final double kTrackwidthMeters = 1.0;
-public static final double kMaxSpeedMetersPerSecond = 1.0;
-public static final double kMaxAccelerationMetersPerSecondSquared = 1.0;
+public static final double ksVolts = 1.0,
+  kvVoltSecondsPerMeter = 1.0,
+  kaVoltSecondsSquaredPerMeter = 1.0,
+  kPDriveVel = 1.0,
+  kTrackwidthMeters = 1.0,
+  kMaxSpeedMetersPerSecond = 1.0,
+  kMaxAccelerationMetersPerSecondSquared = 1.0;
 public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackwidthMeters);
+
 // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
-public static final double kRamseteB = 2;
-public static final double kRamseteZeta = 0.7;
+public static final double kRamseteB = 2, kRamseteZeta = 0.7;
 
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
-
-public static Trajectory driveTrajectory;
-public static Trajectory straightErrorTrajectory;
-public static Trajectory leftPositionLowTrajectory;
-public static Trajectory centerPositionLowTrajectory;
-public static Trajectory rightPositionLowTrajectory;
-public static Trajectory leftPositionHighTrajectory;
-public static Trajectory centerPositionHighTrajectory;
-public static Trajectory rightPositionHighTrajectory;
 
 
 // Climb Subsystem IDs

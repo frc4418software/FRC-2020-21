@@ -319,12 +319,12 @@ public class DriveSubsystem extends SubsystemBase {
 
   // read front distance
   public double getFrontDriveDistance(){
-    return frontDriveDistance.getRangeMM() / 10.0;
+    return (frontDriveDistance.getRangeMM() * 10.0)/2;
   }
 
   //read back distance
   public double getBackDriveDistance(){
-    return backDriveDistance.getRangeMM() / 10.0;
+    return (backDriveDistance.getRangeMM() * 10.0)/2;
   }
 
   //enable/disable front distance

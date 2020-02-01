@@ -31,6 +31,7 @@ public class Robot extends TimedRobot {
   public static ClimbSubsystem climbSubsystem = new ClimbSubsystem();
   public static OutputAllDataCommand dataComm = new OutputAllDataCommand();
   public static int robotPosition; 
+  public static double distance;
 
   public static SendableChooser<Integer> robotPositionChooser;
   public static SendableChooser<Integer> autoRoutineChooser;
@@ -92,6 +93,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
+    distance = driveSubsystem.getFrontDriveDistance();
     AutoRoutineChooser.SetDriveTrajectory();
     robotPosition = DriverStation.getInstance().getLocation();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();

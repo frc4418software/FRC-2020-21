@@ -37,6 +37,8 @@ public class AutoRoutineChooser {
     public static Trajectory leftPositionHighTrajectory;
     public static Trajectory centerPositionHighTrajectory;
     public static Trajectory rightPositionHighTrajectory;
+    public static final double ROBOTLENGTH = 2.0;
+    public static final double SHOOTINGDISTANCELOW = .45;
 
     public static void SetDriveTrajectory() {
         // Create a voltage constraint to ensure we don't accelerate too fast
@@ -74,6 +76,51 @@ public class AutoRoutineChooser {
             // Pass config
             config
         ); 
+
+        double PositionX = -(.9466-(Math.abs(ROBOTLENGTH-Robot.distance)));
+
+        leftPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
+            // Start at the origin facing the +X direction
+            new Pose2d(0, 0, new Rotation2d(0)),
+            // Pass through first one, is in front of shooting zone, passes through second one, is in position to shoot to low goal
+            List.of(
+                new Translation2d(PositionX, -.4399),
+                new Translation2d(PositionX, -(SHOOTINGDISTANCELOW+.4394))
+            ),
+            // final position 90 degrees from origional position and calculated distance from start
+            new Pose2d(PositionX, -(SHOOTINGDISTANCELOW+.4394), new Rotation2d(-(Math.PI/2))),
+            // Pass config
+            config
+        );
+        
+        //this one just turns the opposite way
+        rightPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
+            // Start at the origin facing the +X direction
+            new Pose2d(0, 0, new Rotation2d(0)),
+            // Pass through first one, is in front of shooting zone, passes through second one, is in position to shoot to low goal
+            List.of(
+                new Translation2d(PositionX, .4399),
+                new Translation2d(PositionX, (SHOOTINGDISTANCELOW+.4394))
+            ),
+            // final position 90 degrees from origional position and calculated distance from start
+            new Pose2d(PositionX, (SHOOTINGDISTANCELOW+.4394), new Rotation2d(Math.PI/2)),
+            // Pass config
+            config
+        );
+
+        //assumed to be right in front of low goal, just drives forward into shooting distance
+        centerPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
+            // Start at the origin facing the +X direction
+            new Pose2d(0, 0, new Rotation2d(0)),
+            // rotates 180 degrees then moves into shooting distance
+            List.of(
+                new Translation2d(0, -(SHOOTINGDISTANCELOW+.4394))
+            ),
+            // final position in shooting position
+            new Pose2d(0, -(SHOOTINGDISTANCELOW+.4394), new Rotation2d(0)),
+            // Pass config
+            config
+        );
     }
     
     //this command is run at the start of the AutoCommand, it sets the DriveTrajectory to one of the 6 posible trajectories based on the goal and the location of the robot
