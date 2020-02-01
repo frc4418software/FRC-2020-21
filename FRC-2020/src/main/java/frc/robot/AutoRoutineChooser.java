@@ -19,12 +19,17 @@ import edu.wpi.first.wpilibj.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.trajectory.constraint.DifferentialDriveVoltageConstraint;
 
 /**
- * Add your docs here.
+ * How this Routine works:
+ * This routine sets all of the posible trajectories that the robot can go through in the Auto period.
+ * It does this by setting different trajectories for each position/goal that is either selected by Driverstation/FMS or by Smartdashboard.
+ * In the DriveTrajectory start command, depending on the information that the robot got from either DS or SD the robot will funnel the 
+ * correct Trajectory into DriveTrajectory which is the base Trajectory that is referenced in the AutoCommand in robotContainer.
  */
 public class AutoRoutineChooser {
 
-    //Drive Trajectories for low goal shooting and high goal shooting 
-    public static Trajectory driveTrajectory;
+    //Drive Trajectories for low goal shooting and high goal shooting, as well as an error trajectory where the robot will just drive off of the initiation line
+    public static Trajectory driveTrajectory; //this will be left blank and established in the DriveTrajectoryStart method
+    //set in SetDriveTrajectory Method:
     public static Trajectory straightErrorTrajectory;
     public static Trajectory leftPositionLowTrajectory;
     public static Trajectory centerPositionLowTrajectory;
@@ -71,10 +76,18 @@ public class AutoRoutineChooser {
         ); 
     }
     
+    //this command is run at the start of the AutoCommand, it sets the DriveTrajectory to one of the 6 posible trajectories based on the goal and the location of the robot
+    /*Current possible configurations: (default decided by DS/FMS, can be changed in SmartDashboard; low goal is also the default and can be changed in SD)
+    - Low goal shooting: left station, right station, center station
+    - High goal shooting: left station, right station, center station (tbd whether or not this will be functional)
+    */
     public static void DriveTrajectoryStart () {
         int autoRoutine = Robot.autoRoutineChooser.getSelected();
         int positionInput = Robot.robotPositionChooser.getSelected();
+
+        //if the auto routine is set to low goal shooting (this is the default command)
         if(autoRoutine == 0 ) {
+          // if the position is to be given by Driverstation / FMS (this is the default command) 1= left station, 2= center, 3=right
           if(positionInput == 0) {
             if (Robot.robotPosition == 1) {
               driveTrajectory = leftPositionLowTrajectory;
@@ -86,6 +99,7 @@ public class AutoRoutineChooser {
               driveTrajectory = straightErrorTrajectory;
             }
           }
+          //This is if the position is manually given/ set in SmartDashboard, numbers for stations are the same as if it were given by DS
           if (positionInput == 1) {
             driveTrajectory = leftPositionLowTrajectory;
           }
@@ -96,7 +110,9 @@ public class AutoRoutineChooser {
             driveTrajectory = rightPositionLowTrajectory;
           }
     
-        } else if (autoRoutine == 1) {
+        } 
+        //This is if we are aiming for the high goal... everything is the same as low goal but the trajectories are the high ones
+        else if (autoRoutine == 1) {
           if(positionInput == 0) {
             if (Robot.robotPosition == 1) {
               driveTrajectory = leftPositionHighTrajectory;
