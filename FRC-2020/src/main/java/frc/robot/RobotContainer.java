@@ -95,7 +95,7 @@ public class RobotContainer {
     AutoRoutineChooser.DriveTrajectoryStart();
 
     //This command will follow the driveTajectory when established
-    RamseteCommand ramseteCommand = new RamseteCommand(
+    RamseteCommand ramseteDriveCommand = new RamseteCommand(
       AutoRoutineChooser.driveTrajectory, 
       drive::getPose, 
       new RamseteController(Constants.kRamseteB, Constants.kRamseteZeta), 
@@ -109,6 +109,6 @@ public class RobotContainer {
     
 
     // Run path following command, then stop at the end.
-    return ramseteCommand.andThen(() -> Robot.driveSubsystem.driveVolts(0, 0));
+    return (ramseteDriveCommand.andThen(() -> Robot.driveSubsystem.driveVolts(0, 0)));
   }
 }

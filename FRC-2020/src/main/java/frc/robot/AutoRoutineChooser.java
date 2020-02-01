@@ -55,6 +55,7 @@ public class AutoRoutineChooser {
 
         //here is were we will configure all of the drive trajectories established at start
         // Example w/o PathWeaver: swerves, will establish all trajectories in similar format (DriveTrajectory will be left blank in final)
+        //other formats than this and PathWeaver available... check the docs (generateTrajectory)
         driveTrajectory = TrajectoryGenerator.generateTrajectory(
             // Start at the origin facing the +X direction
             new Pose2d(0, 0, new Rotation2d(0)),

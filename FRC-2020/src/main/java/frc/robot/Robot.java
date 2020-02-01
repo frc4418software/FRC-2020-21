@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
 
     autoRoutineChooser = new SendableChooser<Integer>();
     autoRoutineChooser.setDefaultOption("Low Goal", 0);
-    autoRoutineChooser.addOption("High Goal???", 1);
+    autoRoutineChooser.addOption("High Goal", 1);
     SmartDashboard.putData(autoRoutineChooser);
 
 
