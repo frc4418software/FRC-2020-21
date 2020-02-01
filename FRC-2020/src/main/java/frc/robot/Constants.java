@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
+import edu.wpi.first.wpilibj.trajectory.Trajectory;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -95,6 +96,16 @@ public static final double kRamseteB = 2;
 public static final double kRamseteZeta = 0.7;
 
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
+
+public static Trajectory driveTrajectory;
+public static Trajectory straightErrorTrajectory;
+public static Trajectory leftPositionLowTrajectory;
+public static Trajectory centerPositionLowTrajectory;
+public static Trajectory rightPositionLowTrajectory;
+public static Trajectory leftPositionHighTrajectory;
+public static Trajectory centerPositionHighTrajectory;
+public static Trajectory rightPositionHighTrajectory;
+
 
 // Climb Subsystem IDs
 public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 
