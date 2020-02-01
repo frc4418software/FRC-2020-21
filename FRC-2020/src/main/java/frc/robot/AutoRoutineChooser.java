@@ -37,8 +37,9 @@ public class AutoRoutineChooser {
     public static Trajectory leftPositionHighTrajectory;
     public static Trajectory centerPositionHighTrajectory;
     public static Trajectory rightPositionHighTrajectory;
-    public static final double ROBOTLENGTH = 2.0;
-    public static final double SHOOTINGDISTANCELOW = .45;
+    public static final double ROBOTLENGTH = 2.0; // length of the robot... accual value tbd
+    public static final double SHOOTINGDISTANCELOW = .45; // distance is .45 meters from the top of the triangle on the game field
+    public static final double SHOOTINGDISTANCEHIGH = 2; //distance is two meters away from the goal
 
     public static void SetDriveTrajectory() {
         // Create a voltage constraint to ensure we don't accelerate too fast
@@ -93,17 +94,19 @@ public class AutoRoutineChooser {
             config
         );
         
+        double PositionY = -(2.1918-(Math.abs(ROBOTLENGTH-Robot.distance)));
+        
         //this one just turns the opposite way
         rightPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
             // Start at the origin facing the +X direction
             new Pose2d(0, 0, new Rotation2d(0)),
             // Pass through first one, is in front of shooting zone, passes through second one, is in position to shoot to low goal
             List.of(
-                new Translation2d(PositionX, .4399),
-                new Translation2d(PositionX, (SHOOTINGDISTANCELOW+.4394))
+                new Translation2d(PositionY, .4399),
+                new Translation2d(PositionY, (SHOOTINGDISTANCELOW+.4394))
             ),
             // final position 90 degrees from origional position and calculated distance from start
-            new Pose2d(PositionX, (SHOOTINGDISTANCELOW+.4394), new Rotation2d(Math.PI/2)),
+            new Pose2d(PositionY, (SHOOTINGDISTANCELOW+.4394), new Rotation2d(Math.PI/2)),
             // Pass config
             config
         );
