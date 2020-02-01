@@ -37,7 +37,7 @@ public class AutoRoutineChooser {
     public static Trajectory leftPositionHighTrajectory;
     public static Trajectory centerPositionHighTrajectory;
     public static Trajectory rightPositionHighTrajectory;
-    public static final double ROBOTLENGTH = 2.0; // length of the robot... accual value tbd
+    public static final double ROBOTLENGTH = 2.0; // length of the robot... actual value tbd
     public static final double SHOOTINGDISTANCELOW = .45; // distance is .45 meters from the top of the triangle on the game field
     public static final double SHOOTINGDISTANCEHIGH = 2; //distance is two meters away from the goal
 
