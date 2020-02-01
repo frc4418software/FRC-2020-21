@@ -117,10 +117,10 @@ public class AutoRoutineChooser {
             new Pose2d(0, 0, new Rotation2d(0)),
             // rotates 180 degrees then moves into shooting distance
             List.of(
-                new Translation2d(0, -(SHOOTINGDISTANCELOW+.4394))
+                new Translation2d((SHOOTINGDISTANCELOW+.4394), 0)
             ),
             // final position in shooting position
-            new Pose2d(0, -(SHOOTINGDISTANCELOW+.4394), new Rotation2d(0)),
+            new Pose2d((SHOOTINGDISTANCELOW+.4394), 0, new Rotation2d(0)),
             // Pass config
             config
         );
