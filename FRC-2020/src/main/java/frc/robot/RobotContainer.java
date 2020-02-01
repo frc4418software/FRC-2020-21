@@ -110,6 +110,7 @@ public class RobotContainer {
             Constants.kDriveKinematics,
             10);
 
+
     // Create config for trajectory
     TrajectoryConfig config =
         new TrajectoryConfig(Constants.kMaxSpeedMetersPerSecond,
@@ -118,9 +119,20 @@ public class RobotContainer {
             .setKinematics(Constants.kDriveKinematics)
             // Apply the voltage constraint
             .addConstraint(autoVoltageConstraint);
-
+    
+            
     // An example trajectory to follow.  All units in meters.
-    Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
+    Trajectory driveTrajectory;
+    if (Robot.robotPosition == 1) {
+    
+    } else if (Robot.robotPosition == 2) {
+
+    } else if (Robot.robotPosition == 3) {
+
+    } else {
+
+    }
+    driveTrajectory = TrajectoryGenerator.generateTrajectory(
         // Start at the origin facing the +X direction
         new Pose2d(0, 0, new Rotation2d(0)),
         // Pass through these two interior waypoints, making an 's' curve path
@@ -137,7 +149,7 @@ public class RobotContainer {
     
 
     RamseteCommand ramseteCommand = new RamseteCommand(
-      exampleTrajectory, 
+      driveTrajectory, 
       drive::getPose, 
       new RamseteController(Constants.kRamseteB, Constants.kRamseteZeta), 
       new SimpleMotorFeedforward(Constants.ksVolts, Constants.kvVoltSecondsPerMeter, Constants.kaVoltSecondsSquaredPerMeter), 
