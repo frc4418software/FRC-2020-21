@@ -45,7 +45,7 @@ public class DriveSubsystem extends SubsystemBase {
   private Ultrasonic frontDriveDistance;
   private Ultrasonic backDriveDistance;
 
-  private boolean arcadeDrive = false;
+  private boolean arcadeDrive = true;
   private final DifferentialDriveOdometry odometry;
 
   public DriveSubsystem() {

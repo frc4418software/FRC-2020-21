@@ -101,7 +101,7 @@ public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI)
 public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 
   CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
   CLIMBER_TALON_SRX_ID = 30;
-//public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = ;          tbd
+public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = (15.24 * Math.PI) / 256; //diameter tbd          
 
 // RIO Post Info
 public static int[] expectedTalonIDs = {DRIVE_LEFT_A_TALON_SRX_ID, DRIVE_LEFT_B_TALON_SRX_ID, DRIVE_RIGHT_A_TALON_SRX_ID, 
