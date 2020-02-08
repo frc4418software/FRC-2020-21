@@ -37,7 +37,7 @@ public class AutoRoutineChooser {
     public static Trajectory leftPositionHighTrajectory;
     public static Trajectory centerPositionHighTrajectory;
     public static Trajectory rightPositionHighTrajectory;
-    public static final double ROBOTLENGTH = 2.0; // length of the robot... actual value tbd
+    public static final double ROBOTHALFLENGTH = 0.5; // length of half/ to the rio ... actual value tbd
     public static final double SHOOTINGDISTANCELOW = .45; // distance is .45 meters from the top of the triangle on the game field
     public static final double SHOOTINGDISTANCEHIGH = 2; //distance is two meters away from the goal
 
@@ -78,23 +78,23 @@ public class AutoRoutineChooser {
             config
         ); 
 
-        double PositionL = -(.9466-(Math.abs(ROBOTLENGTH-Robot.distance)));
+        double PositionL = (.9466-(Math.abs(Robot.distance- ROBOTHALFLENGTH)));
 
         leftPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
             // Start at the origin facing the +X direction
             new Pose2d(0, 0, new Rotation2d(0)),
             // Pass through first one, is in front of shooting zone, passes through second one, is in position to shoot to low goal
             List.of(
-                new Translation2d(PositionL, -.4399),
-                new Translation2d(PositionL, -(SHOOTINGDISTANCELOW+.4394))
+                new Translation2d(PositionL, .4399),
+                new Translation2d(PositionL, (SHOOTINGDISTANCELOW+.4394))
             ),
             // final position 90 degrees from origional position and calculated distance from start
-            new Pose2d(PositionL, -(SHOOTINGDISTANCELOW+.4394), new Rotation2d(-(Math.PI/2))),
+            new Pose2d(PositionL, (SHOOTINGDISTANCELOW+.4394), new Rotation2d((Math.PI/2))),
             // Pass config
             config
         );
         
-        double PositionR = -(2.1918-(Math.abs(ROBOTLENGTH-Robot.distance)));
+        double PositionR = (2.1918-(Math.abs(Robot.distance- ROBOTHALFLENGTH)));
         
         //this one just turns the opposite way
         rightPositionLowTrajectory = TrajectoryGenerator.generateTrajectory(
@@ -102,11 +102,11 @@ public class AutoRoutineChooser {
             new Pose2d(0, 0, new Rotation2d(0)),
             // Pass through first one, is in front of shooting zone, passes through second one, is in position to shoot to low goal
             List.of(
-                new Translation2d(PositionR, .4399),
-                new Translation2d(PositionR, (SHOOTINGDISTANCELOW+.4394))
+                new Translation2d(PositionR, -.4399),
+                new Translation2d(PositionR, -(SHOOTINGDISTANCELOW+.4394))
             ),
             // final position 90 degrees from origional position and calculated distance from start
-            new Pose2d(PositionR, (SHOOTINGDISTANCELOW+.4394), new Rotation2d(Math.PI/2)),
+            new Pose2d(PositionR, (SHOOTINGDISTANCELOW+.4394), new Rotation2d(-Math.PI/2)),
             // Pass config
             config
         );
