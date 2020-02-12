@@ -56,6 +56,20 @@ public class ManipulatorSubsystem extends SubsystemBase {
     pivotMotor.set(ControlMode.PercentOutput, motorValue);
   }
 
+  //stop the motors
+  public void stopRightFireMotor(){
+    rightFireMotor.set(ControlMode.PercentOutput, 0);
+  }
+  public void stopLeftFireMotor(){
+    leftFireMotor.set(ControlMode.PercentOutput, 0);
+  }
+  public void stopLoadMotor(){
+    loadMotor.set(ControlMode.PercentOutput, 0);
+  }
+  public void stopIntakeMotor(){
+    intakeMotor.set(ControlMode.PercentOutput, 0);
+  }
+
   //read right spinning fire motor
   public double getRightFireMotor(){
     return rightFireMotor.getMotorOutputPercent();
