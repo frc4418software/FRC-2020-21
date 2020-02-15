@@ -40,8 +40,8 @@ public class FireCommand extends CommandBase {
     }*/
       //interval command to be added later
     
-    Robot.manipulatorsubsystem.setBottomFireMotor(.24);
-    Robot.manipulatorsubsystem.setTopFireMotor(-.6);
+    Robot.manipulatorsubsystem.setBottomFireMotor(.3);
+    Robot.manipulatorsubsystem.setTopFireMotor(-.3);
   }
 
   // Called once the command ends or is interrupted.

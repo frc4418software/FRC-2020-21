@@ -28,7 +28,7 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void execute() {
     SmartDashboard.putNumber("Intake Motor", Robot.manipulatorsubsystem.getIntakeMotor());
-    Robot.manipulatorsubsystem.setIntakeMotor(50);
+    Robot.manipulatorsubsystem.setIntakeMotor(-1.0);
   }
 
   // Called once the command ends or is interrupted.
