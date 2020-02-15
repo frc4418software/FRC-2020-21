@@ -85,10 +85,10 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
 
 // Manipulator Subsystem IDs
-public static final int MAN_FIRE_RIGHT_TALON_SRX_ID = 4,
-  MAN_FIRE_LEFT_TALON_SRX_ID = 1,
+public static final int MAN_FIRE_BOTTOM_TALON_SRX_ID = 6,
+  MAN_FIRE_TOP_TALON_SRX_ID = 4,
   MAN_LOAD_TALON_SRX_ID = 3,
-  MAN_INTAKE_TALON_SRX_ID = 6;
+  MAN_INTAKE_VICTOR_SPX_ID = 33;
 
 // Climb Subsystem IDs
 public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 

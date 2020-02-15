@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 //import edu.wpi.first.wpilibj.interfaces.Potentiometer;
@@ -19,11 +20,11 @@ public class ManipulatorSubsystem extends SubsystemBase {
   /**
    * Creates a new ShootSubsystem.
    */
-  private WPI_TalonSRX rightFireMotor;
-  private WPI_TalonSRX leftFireMotor;
+  private WPI_TalonSRX bottomFireMotor;
+  private WPI_TalonSRX topFireMotor;
   private WPI_TalonSRX loadMotor;
   private WPI_TalonSRX pivotMotor;
-  private WPI_TalonSRX intakeMotor;
+  private WPI_VictorSPX intakeMotor;
 
   private AnalogPotentiometer pivotPotentiometer;
 
@@ -32,19 +33,20 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public boolean launchSpin;
 
   public ManipulatorSubsystem() {
-    rightFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_RIGHT_TALON_SRX_ID);
-    leftFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_LEFT_TALON_SRX_ID);
+    bottomFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_BOTTOM_TALON_SRX_ID);
+    topFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_TOP_TALON_SRX_ID);
     loadMotor = new WPI_TalonSRX(Constants.MAN_LOAD_TALON_SRX_ID);
-    intakeMotor = new WPI_TalonSRX(Constants.MAN_INTAKE_TALON_SRX_ID);
+    intakeMotor = new WPI_VictorSPX(Constants.MAN_INTAKE_VICTOR_SPX_ID);
   }
   //set and get the motors stuff
 
-  //control right spinning fire motor
-  public void setRightFireMotor(double motorValue){
-    rightFireMotor.set(ControlMode.PercentOutput, motorValue);
+  //control bottom fire motor
+  //right is bottom for now
+  public void setBottomFireMotor(double motorValue){
+    bottomFireMotor.set(ControlMode.PercentOutput, motorValue);
   }
-  public void setLeftFireMotor(double motorValue){
-    leftFireMotor.set(ControlMode.PercentOutput, motorValue);
+  public void setTopFireMotor(double motorValue){
+    topFireMotor.set(ControlMode.PercentOutput, motorValue);
   }
   public void setLoadMotor(double motorValue){
     loadMotor.set(ControlMode.PercentOutput, motorValue);
@@ -57,11 +59,11 @@ public class ManipulatorSubsystem extends SubsystemBase {
   }
 
   //stop the motors
-  public void stopRightFireMotor(){
-    rightFireMotor.set(ControlMode.PercentOutput, 0);
+  public void stopBottomFireMotor(){
+    bottomFireMotor.set(ControlMode.PercentOutput, 0);
   }
-  public void stopLeftFireMotor(){
-    leftFireMotor.set(ControlMode.PercentOutput, 0);
+  public void stopTopFireMotor(){
+    topFireMotor.set(ControlMode.PercentOutput, 0);
   }
   public void stopLoadMotor(){
     loadMotor.set(ControlMode.PercentOutput, 0);
@@ -70,12 +72,12 @@ public class ManipulatorSubsystem extends SubsystemBase {
     intakeMotor.set(ControlMode.PercentOutput, 0);
   }
 
-  //read right spinning fire motor
-  public double getRightFireMotor(){
-    return rightFireMotor.getMotorOutputPercent();
+  //read bottom fire motor
+  public double getBottomFireMotor(){
+    return bottomFireMotor.getMotorOutputPercent();
   }
-  public double getLeftFireMotor(){
-    return leftFireMotor.getMotorOutputPercent();
+  public double getTopFireMotor(){
+    return topFireMotor.getMotorOutputPercent();
   }
   public double getLoadMotor(){
     return loadMotor.getMotorOutputPercent();

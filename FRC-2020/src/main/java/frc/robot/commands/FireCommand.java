@@ -37,15 +37,15 @@ public class FireCommand extends CommandBase {
     }*/
       //interval command to be added later
     
-    Robot.manipulatorsubsystem.setRightFireMotor(100);
-    Robot.manipulatorsubsystem.setLeftFireMotor(-100);
+    Robot.manipulatorsubsystem.setBottomFireMotor(65);
+    Robot.manipulatorsubsystem.setTopFireMotor(-100);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.manipulatorsubsystem.stopRightFireMotor();
-    Robot.manipulatorsubsystem.stopLeftFireMotor();
+    Robot.manipulatorsubsystem.stopBottomFireMotor();
+    Robot.manipulatorsubsystem.stopTopFireMotor();
   }
 
   // Returns true when the command should end.
