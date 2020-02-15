@@ -43,13 +43,13 @@ public final class Constants {
   X3D_BUTTON_3 = 3,
   //X3D_BUTTON_4 = 4,
   X3D_BUTTON_5 = 5,
-  X3D_BUTTON_6 = 6;
-  //X3D_BUTTON_7 = 7,
+  X3D_BUTTON_6 = 6,
+  X3D_BUTTON_7 = 7
   //X3D_BUTTON_8 = 8,
   //X3D_BUTTON_9 = 9,
   //X3D_BUTTON_10 = 10,
   //X3D_BUTTON_11 = 11,
-  //X3D_BUTTON_12 = 12;
+  /*X3D_BUTTON_12 = 12*/;
 
 
 // Controller IDs
@@ -64,6 +64,7 @@ public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP,
   LAUNCH_BUTTON_ID = X3D_BUTTON_3, //Manipulator buttons
   LOAD_BUTTON_ID = X3D_BUTTON_TRIGGER,
+  TEST_BUTTON_ID = X3D_BUTTON_7,
   //PIVOT_BUTTON_ID = X3D_BUTTON_12,
   INTAKE_BUTTON_ID = X3D_BUTTON_6,
   CLIMB_AXIS_ID = GAMEPAD_AXIS_LEFT_Y;
