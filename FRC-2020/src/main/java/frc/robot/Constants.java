@@ -41,7 +41,7 @@ public final class Constants {
   X3D_BUTTON_TRIGGER = 1, // X3d buttons
   X3D_BUTTON_GRIP = 2,
   X3D_BUTTON_3 = 3,
-  //X3D_BUTTON_4 = 4,
+  X3D_BUTTON_4 = 4,
   X3D_BUTTON_5 = 5,
   X3D_BUTTON_6 = 6,
   X3D_BUTTON_7 = 7
@@ -64,6 +64,7 @@ public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP,
   LAUNCH_BUTTON_ID = X3D_BUTTON_3, //Manipulator buttons
   LOAD_BUTTON_ID = X3D_BUTTON_TRIGGER,
+  SEMI_AUTO_BUTTON_ID = X3D_BUTTON_4,
   TEST_BUTTON_ID = X3D_BUTTON_7,
   //PIVOT_BUTTON_ID = X3D_BUTTON_12,
   INTAKE_BUTTON_ID = X3D_BUTTON_6,
@@ -86,9 +87,9 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
 
 // Manipulator Subsystem IDs
-public static final int MAN_FIRE_BOTTOM_TALON_SRX_ID = 6,
-  MAN_FIRE_TOP_TALON_SRX_ID = 4,
-  MAN_LOAD_TALON_SRX_ID = 3,
+public static final int MAN_FIRE_BOTTOM_TALON_SRX_ID = 30,
+  MAN_FIRE_TOP_TALON_SRX_ID = 31,
+  MAN_LOAD_TALON_SRX_ID = 32,
   MAN_INTAKE_VICTOR_SPX_ID = 33;
 
 // Climb Subsystem IDs

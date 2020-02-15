@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class LoadCommand extends CommandBase {
+public class SemiAutoFireCommand extends CommandBase {
   /**
-   * Creates a new LoadCommand.
+   * Creates a new SemiAutoFireCommand.
    */
-  public LoadCommand() {
+  public SemiAutoFireCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -27,13 +27,24 @@ public class LoadCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    SmartDashboard.putNumber("Load Motor", Robot.manipulatorsubsystem.getLoadMotor());
-    Robot.manipulatorsubsystem.setLoadMotor(.5);
+    SmartDashboard.putNumber("Bottom Fire", Robot.manipulatorsubsystem.getBottomFireMotor());
+    SmartDashboard.putNumber("Top Fire", Robot.manipulatorsubsystem.getTopFireMotor());
+    SmartDashboard.putNumber("Load", Robot.manipulatorsubsystem.getLoadMotor());
+    Robot.manipulatorsubsystem.setBottomFireMotor(.24);
+    Robot.manipulatorsubsystem.setTopFireMotor(-.6);
+    try{
+      Thread.sleep(2500);
+    } catch (InterruptedException e){
+      e.printStackTrace();
+    }
+    Robot.manipulatorsubsystem.setLoadMotor(.1);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.manipulatorsubsystem.stopBottomFireMotor();
+    Robot.manipulatorsubsystem.stopTopFireMotor();
     Robot.manipulatorsubsystem.stopLoadMotor();
   }
 
