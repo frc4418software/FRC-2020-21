@@ -33,11 +33,11 @@ public class SemiAutoFireCommand extends CommandBase {
     Robot.manipulatorsubsystem.setBottomFireMotor(.24);
     Robot.manipulatorsubsystem.setTopFireMotor(-.6);
     try{
-      Thread.sleep(2500);
+      Thread.sleep(1000);
     } catch (InterruptedException e){
       e.printStackTrace();
     }
-    Robot.manipulatorsubsystem.setLoadMotor(.1);
+    Robot.manipulatorsubsystem.setLoadMotor(.5);
   }
 
   // Called once the command ends or is interrupted.
