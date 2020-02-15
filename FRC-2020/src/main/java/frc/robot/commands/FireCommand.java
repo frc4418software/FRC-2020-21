@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
@@ -27,6 +28,8 @@ public class FireCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    SmartDashboard.putNumber("Top Fire", Robot.manipulatorsubsystem.getTopFireMotor());
+    SmartDashboard.putNumber("Bottom Fire", Robot.manipulatorsubsystem.getBottomFireMotor());
     /*if(Robot.manipulatorsubsystem.launchSpin == false) {
       for(int i=0; i <= 10; i++){
         Robot.manipulatorsubsystem.setRightFireMotor(i*10);
