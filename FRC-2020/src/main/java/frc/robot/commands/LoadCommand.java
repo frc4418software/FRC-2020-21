@@ -26,7 +26,7 @@ public class LoadCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.manipulatorsubsystem.setLoadMotor(50);
+    Robot.manipulatorsubsystem.setLoadMotor(.5);
   }
 
   // Called once the command ends or is interrupted.
