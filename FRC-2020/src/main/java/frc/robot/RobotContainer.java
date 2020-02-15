@@ -59,6 +59,8 @@ public class RobotContainer {
   public static JoystickButton loadButton = new JoystickButton(X3D_RIGHT, Constants.LOAD_BUTTON_ID);
   public static JoystickButton launchButton = new JoystickButton(X3D_RIGHT, Constants.LAUNCH_BUTTON_ID);
   public static JoystickButton intakeButton = new JoystickButton(X3D_RIGHT, Constants.INTAKE_BUTTON_ID);
+  public static JoystickButton testButton = new JoystickButton(X3D_RIGHT, Constants.TEST_BUTTON_ID);
+  public static JoystickButton semiAutoButton = new JoystickButton(X3D_RIGHT, Constants.SEMI_AUTO_BUTTON_ID);
 
 
   /**
@@ -81,6 +83,8 @@ public class RobotContainer {
     loadButton.whileHeld(new LoadCommand());
     intakeButton.whileHeld(new IntakeCommand());
     launchButton.whileHeld(new FireCommand());
+    semiAutoButton.whileHeld(new SemiAutoFireCommand());
+    testButton.whileHeld(new WaitTestCommand());
   }
 
 
