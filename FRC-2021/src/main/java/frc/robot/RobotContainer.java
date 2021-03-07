@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.RamseteCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveStraightCommand;
 import frc.robot.commands.ToggleArcadeDriveCommand;
-import frc.robot.subsystems.DriveSubsystem;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -33,8 +33,7 @@ public class RobotContainer {
   // private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
 
   // private final ExampleCommand m_autoCommand = new
-  // ExampleCommand(m_exampleSubsystem);
-  private DriveSubsystem drive = new DriveSubsystem();
+  // ExampleCommand(m_exampleSubsystem)
 
   // Create joysticks
   private static final Joystick X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
@@ -98,14 +97,14 @@ public class RobotContainer {
     //This command will follow the driveTajectory when established
     RamseteCommand ramseteDriveCommand = new RamseteCommand(
       AutoRoutineChooser.driveTrajectory, 
-      drive::getPose, 
+      Robot.driveSubsystem::getPose, 
       new RamseteController(Constants.kRamseteB, Constants.kRamseteZeta), 
       new SimpleMotorFeedforward(Constants.ksVolts, Constants.kvVoltSecondsPerMeter, Constants.kaVoltSecondsSquaredPerMeter), 
       Constants.kDriveKinematics, 
-      drive::getWheelSpeeds, 
+      Robot.driveSubsystem::getWheelSpeeds, 
       new PIDController(Constants.kPDriveVel, 0, 0), 
       new PIDController(Constants.kPDriveVel, 0, 0),
-      drive::driveVolts, 
+      Robot.driveSubsystem::driveVolts, 
       Robot.driveSubsystem);
     
 
