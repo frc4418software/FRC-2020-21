@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.analog.adis16448.frc.ADIS16448_IMU;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -45,6 +47,8 @@ public class DriveSubsystem extends SubsystemBase {
   private Ultrasonic frontDriveDistance;
   private Ultrasonic backDriveDistance;
 
+  private ADIS16448_IMU imu;
+
   private boolean arcadeDrive = true;
   private final DifferentialDriveOdometry odometry;
 
@@ -67,6 +71,7 @@ public class DriveSubsystem extends SubsystemBase {
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
     driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
     driveAccel = new BuiltInAccelerometer();
+    imu = new ADIS16448_IMU();
     frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
     backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
 
@@ -293,7 +298,37 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
 
+  //IMU 
+  public void calibrateIMU() {
+    imu.calibrate();
+  }
 
+  public void resetIMU() {
+    imu.reset();
+  }
+
+  public double getIMUAngle(){
+    return imu.getAngle();
+  }
+
+  public double getIMURate() {
+    return imu.getRate();
+  }
+  
+
+  //Auto Rotine Stuffs
+  public DifferentialDriveWheelSpeeds getWheelSpeeds() {
+    return new DifferentialDriveWheelSpeeds(leftDriveEncoder.getRate(), rightDriveEncoder.getRate());
+  }
+
+  public Pose2d getPose() {
+    return odometry.getPoseMeters();
+  }
+
+  public void resetOdometry(Pose2d pose) {
+    resetEncoders();
+    odometry.resetPosition(pose, Rotation2d.fromDegrees(getIMUAngle()));
+  }
 
 
   // Accelerometr stuffs
@@ -341,18 +376,7 @@ public class DriveSubsystem extends SubsystemBase {
     return (leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance())/2.0;
   }
 
-  public DifferentialDriveWheelSpeeds getWheelSpeeds() {
-    return new DifferentialDriveWheelSpeeds(leftDriveEncoder.getRate(), rightDriveEncoder.getRate());
-  }
 
-  public Pose2d getPose() {
-    return odometry.getPoseMeters();
-  }
-
-  public void resetOdometry(Pose2d pose) {
-    resetEncoders();
-    odometry.resetPosition(pose, Rotation2d.fromDegrees(getGyroValue()));
-  }
 
 
 

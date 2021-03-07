@@ -65,6 +65,7 @@ public class RobotContainer {
   public static JoystickButton toggleArcadeDriveButton = new JoystickButton(X3D_RIGHT,
       Constants.TOGGLE_ARCADE_DRIVE_BUTOON_ID);
   public static JoystickButton driveStraightButton = new JoystickButton(X3D_RIGHT, Constants.DRIVE_STRAIGHT_BUTTON_ID);
+  public static JoystickButton configureIMUButton = new JoystickButton(X3D_RIGHT, Constants.CONFIGURE_IMU_BUTTON_ID);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
