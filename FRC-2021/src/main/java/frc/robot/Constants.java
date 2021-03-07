@@ -87,10 +87,10 @@ public static final double ksVolts = 1.0,
   kvVoltSecondsPerMeter = 1.0,
   kaVoltSecondsSquaredPerMeter = 1.0,
   kPDriveVel = 1.0,
-  kTrackwidthMeters = 1.0,
+  kTrackWidthMeters = 1.0,
   kMaxSpeedMetersPerSecond = 1.0,
   kMaxAccelerationMetersPerSecondSquared = 1.0;
-public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackwidthMeters);
+public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackWidthMeters);
 
 // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
 public static final double kRamseteB = 2, kRamseteZeta = 0.7;

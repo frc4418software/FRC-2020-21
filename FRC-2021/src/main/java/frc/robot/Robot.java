@@ -57,8 +57,6 @@ public class Robot extends TimedRobot {
     autoRoutineChooser.setDefaultOption("Low Goal", 0);
     autoRoutineChooser.addOption("High Goal", 1);
     SmartDashboard.putData(autoRoutineChooser);
-
-
   }
 
   /**
@@ -94,7 +92,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     distance = driveSubsystem.getBackDriveDistance();
-    AutoRoutineChooser.SetDriveTrajectory();
+    AutoRoutineChooser.setDriveTrajectory();
     robotPosition = DriverStation.getInstance().getLocation();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 

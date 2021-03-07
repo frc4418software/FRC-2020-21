@@ -30,18 +30,23 @@ public class AutoRoutineChooser {
     //Drive Trajectories for low goal shooting and high goal shooting, as well as an error trajectory where the robot will just drive off of the initiation line
     public static Trajectory driveTrajectory; //this will be left blank and established in the DriveTrajectoryStart method
     //set in SetDriveTrajectory Method:
+
     public static Trajectory straightErrorTrajectory;
+
+    // low 
     public static Trajectory leftPositionLowTrajectory;
     public static Trajectory centerPositionLowTrajectory;
     public static Trajectory rightPositionLowTrajectory;
+
     public static Trajectory leftPositionHighTrajectory;
     public static Trajectory centerPositionHighTrajectory;
     public static Trajectory rightPositionHighTrajectory;
+
     public static final double ROBOTHALFLENGTH = 0.5; // length of half/ to the rio ... actual value tbd
     public static final double SHOOTINGDISTANCELOW = .45; // distance is .45 meters from the top of the triangle on the game field
     public static final double SHOOTINGDISTANCEHIGH = 2; //distance is two meters away from the goal
 
-    public static void SetDriveTrajectory() {
+    public static void setDriveTrajectory() {
         // Create a voltage constraint to ensure we don't accelerate too fast
         var autoVoltageConstraint =
             new DifferentialDriveVoltageConstraint(
@@ -131,7 +136,7 @@ public class AutoRoutineChooser {
     - Low goal shooting: left station, right station, center station
     - High goal shooting: left station, right station, center station (tbd whether or not this will be functional)
     */
-    public static void DriveTrajectoryStart () {
+    public static void driveTrajectoryStart () {
         int autoRoutine = Robot.autoRoutineChooser.getSelected();
         int positionInput = Robot.robotPositionChooser.getSelected();
 

@@ -316,7 +316,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
   
 
-  //Auto Rotine Stuffs
+  //Auto Routine Stuffs
   public DifferentialDriveWheelSpeeds getWheelSpeeds() {
     return new DifferentialDriveWheelSpeeds(leftDriveEncoder.getRate(), rightDriveEncoder.getRate());
   }
@@ -331,7 +331,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
 
-  // Accelerometr stuffs
+  // Accelerometer stuffs
 
   //read acceleromter
   public double getDriveAccelX(){

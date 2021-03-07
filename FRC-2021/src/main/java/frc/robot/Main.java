@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.RobotBase;
-import frc.robot.Constants;
+
 /**
  * Do NOT add any static variables to this class, or any initialization at all.
  * Unless you know what you are doing, do not modify this file except to
