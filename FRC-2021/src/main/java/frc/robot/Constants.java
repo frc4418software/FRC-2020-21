@@ -88,7 +88,7 @@ public static final double ksVolts = 1.0,
   kaVoltSecondsSquaredPerMeter = 1.0,
   kPDriveVel = 1.0,
   kTrackWidthMeters = 1.0,
-  kMaxSpeedMetersPerSecond = 1.0,
+  kMaxSpeedMetersPerSecond = 5.0,   // TODO: Adjust this for speed contraints
   kMaxAccelerationMetersPerSecondSquared = 1.0;
 public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackWidthMeters);
 
