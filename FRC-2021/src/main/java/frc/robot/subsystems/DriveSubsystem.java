@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -73,6 +74,12 @@ public class DriveSubsystem extends SubsystemBase {
     rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
     leftDriveEncoder.reset();
     rightDriveEncoder.reset();
+
+    if (leftDriveEncoder.getStopped()) {
+      DriverStation.reportError("\n\nLeft encoder is stopped!!!\n\n", false);
+    } else if (rightDriveEncoder.getStopped()) {
+      DriverStation.reportError("\n\nRight encoder is stopped!!!\n\n", false);
+    }
     
     // driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
     // driveGyro.initGyro();
