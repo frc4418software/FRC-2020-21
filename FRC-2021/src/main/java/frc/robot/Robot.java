@@ -57,6 +57,16 @@ public class Robot extends TimedRobot {
     autoRoutineChooser.setDefaultOption("Low Goal", 0);
     autoRoutineChooser.addOption("High Goal", 1);
     SmartDashboard.putData(autoRoutineChooser);
+
+    if (driveSubsystem.getIMU() == null) {
+      System.out.println("Did not find expected IMU");
+      DriverStation.reportWarning("Did not find expected IMU", false);
+    } else {
+      System.out.println("Found expected IMU, doing 20 test prints now...");
+      for (int i=0; i<20; i++) {
+        System.out.println("\tTEST PRINT: " + driveSubsystem.getIMUAngle() + " degrees");
+      }
+    }
   }
 
   /**

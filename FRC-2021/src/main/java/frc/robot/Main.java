@@ -209,19 +209,19 @@ public final class Main {
     //   System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
     //   DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
     // }
-    AnalogGyro gyro = new AnalogGyro(Constants.expectedGyro);
-    // gyro.initGyro();
-    // gyro.calibrate();
-    if (gyro == null) {
-      System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
-      DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
-    } else {
-      System.out.println("Found expected gyro on " + Constants.expectedGyro + ", doing 20 test prints now...");
-      for (int i=0; i<20; i++) {
-        System.out.println("\tTEST PRINT: " + gyro.getAngle() + " degrees");
-      }
-    }
-    gyro.close();
+    // AnalogGyro gyro = new AnalogGyro(Constants.expectedGyro);
+    // // gyro.initGyro();
+    // // gyro.calibrate();
+    // if (gyro == null) {
+    //   System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
+    //   DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
+    // } else {
+    //   System.out.println("Found expected gyro on " + Constants.expectedGyro + ", doing 20 test prints now...");
+    //   for (int i=0; i<20; i++) {
+    //     System.out.println("\tTEST PRINT: " + gyro.getAngle() + " degrees");
+    //   }
+    // }
+    // gyro.close();
 
 
     System.out.println("\n\n******************** End Gyro Test ********************\n\n");

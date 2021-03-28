@@ -303,6 +303,8 @@ public class DriveSubsystem extends SubsystemBase {
 
 
   //IMU 
+  public ADIS16448_IMU getIMU() { return imu; }
+
   public void calibrateIMU() {
     imu.calibrate();
   }
