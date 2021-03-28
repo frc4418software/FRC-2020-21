@@ -63,7 +63,7 @@ public class DriveSubsystem extends SubsystemBase {
 
 
 
-    odometry = new DifferentialDriveOdometry(Rotation2d.fromDegrees(getGyroValue()));
+    odometry = new DifferentialDriveOdometry(Rotation2d.fromDegrees(getIMUAngle()));
 
     robotDrive = new DifferentialDrive(leftDriveMotor1, rightDriveMotor1);
 
@@ -246,25 +246,25 @@ public class DriveSubsystem extends SubsystemBase {
 
 
 
-
+ 
   // Gyro stuffs
 
   //read gyro angle
-  public double getGyroValue(){
-    return driveGyro.getAngle();
-  }
+  // public double getGyroValue(){
+  //   return driveGyro.getAngle();
+  // }
 
-  //reset gyro
-  public void resetGyro(){
-    driveGyro.calibrate();
-  }
+  // //reset gyro
+  // public void resetGyro(){
+  //   driveGyro.calibrate();
+  // }
 
-  //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto)
-  public void driveVolts(double leftVolts, double rightVolts) {
-    leftDriveMotor1.setVoltage(leftVolts);
-    rightDriveMotor1.setVoltage(-rightVolts);
-    robotDrive.feed();
-  }
+  // //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto)
+  // public void driveVolts(double leftVolts, double rightVolts) {
+  //   leftDriveMotor1.setVoltage(leftVolts);
+  //   rightDriveMotor1.setVoltage(-rightVolts);
+  //   robotDrive.feed();
+  // }
 
 
 
@@ -394,6 +394,6 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new TeleopDriveCommand());
-    odometry.update(Rotation2d.fromDegrees(getGyroValue()), leftDriveEncoder.getDistance(), rightDriveEncoder.getDistance());
+    odometry.update(Rotation2d.fromDegrees(getIMUAngle()), leftDriveEncoder.getDistance(), rightDriveEncoder.getDistance());
   }
 }
