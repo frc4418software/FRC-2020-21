@@ -260,11 +260,11 @@ public class DriveSubsystem extends SubsystemBase {
   // }
 
   // //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto)
-  // public void driveVolts(double leftVolts, double rightVolts) {
-  //   leftDriveMotor1.setVoltage(leftVolts);
-  //   rightDriveMotor1.setVoltage(-rightVolts);
-  //   robotDrive.feed();
-  // }
+  public void driveVolts(double leftVolts, double rightVolts) {
+    leftDriveMotor1.setVoltage(leftVolts);
+    rightDriveMotor1.setVoltage(-rightVolts);
+    robotDrive.feed();
+  }
 
 
 

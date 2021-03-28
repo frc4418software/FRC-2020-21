@@ -30,7 +30,7 @@ public class OutputAllDataCommand extends CommandBase {
   public void execute() {
     SmartDashboard.putNumber("Drive Left Drive Value", Robot.driveSubsystem.getLeftDriveValue());
     SmartDashboard.putNumber("Drive Right Drive Value", Robot.driveSubsystem.getRightDriveValue());
-    SmartDashboard.putNumber("Drive Gyro Value", Robot.driveSubsystem.getGyroValue());
+    // SmartDashboard.putNumber("Drive Gyro Value", Robot.driveSubsystem.getGyroValue());
     SmartDashboard.putNumber("Drive Left Encoder", Robot.driveSubsystem.getLeftDriveEncoder());
     SmartDashboard.putNumber("Drive Right Encoder", Robot.driveSubsystem.getRightDriveEncoder());
     SmartDashboard.putNumber("Drive Accel X", Robot.driveSubsystem.getDriveAccelX());
