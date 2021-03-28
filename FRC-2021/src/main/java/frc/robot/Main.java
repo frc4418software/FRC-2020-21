@@ -50,11 +50,7 @@ public final class Main {
     }
 
     // START CAN TEST
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** Start CAN Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** Start CAN Test ********************\n\n");
 
     // Grab expected Talon IDs, the directory where CAN Data is stored on the RIO, and all the files
     int[] expectedTalonIDs = Constants.expectedTalonIDs;
@@ -214,8 +210,8 @@ public final class Main {
     //   DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
     // }
     AnalogGyro gyro = new AnalogGyro(Constants.expectedGyro);
-    // driveGyro.initGyro();
-    // driveGyro.calibrate();
+    // gyro.initGyro();
+    // gyro.calibrate();
     if (gyro == null) {
       System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
       DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
@@ -227,21 +223,14 @@ public final class Main {
     }
     gyro.close();
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** End Gyro Test ********************");
-    System.out.println();
-    System.out.println();
+
+    System.out.println("\n\n******************** End Gyro Test ********************\n\n");
 
     // END GYRO TEST
 
     // general dio test
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** Start general dio Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** Start general dio Test ********************\n\n");
 
     for(int i = 0; i < 16; i++){
       DigitalInput dio = new DigitalInput(i);
@@ -249,11 +238,8 @@ public final class Main {
       dio.close();
     }
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** end general dio Test ********************");
-    System.out.println();
-    System.out.println();
+
+    System.out.println("\n\n******************** end general dio Test ********************\n\n");
 
     // general dio test
 
