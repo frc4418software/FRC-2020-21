@@ -74,11 +74,11 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
   DRIVE_LEFT_B_TALON_SRX_ID = 11,
   DRIVE_RIGHT_A_TALON_SRX_ID = 20, 
   DRIVE_RIGHT_B_TALON_SRX_ID = 21,
-  DRIVE_LEFT_ENCODER_CHANNELA_ID = 6, 
-  DRIVE_LEFT_ENCODER_CHANNELB_ID = 7, 
-  DRIVE_RIGHT_ENCODER_CHANNELA_ID = 8, 
-  DRIVE_RIGHT_ENCODER_CHANNELB_ID = 9, 
-  DRIVE_GYRO_ID = 0,
+  DRIVE_LEFT_ENCODER_CHANNELA_ID = 0, 
+  DRIVE_LEFT_ENCODER_CHANNELB_ID = 1, 
+  DRIVE_RIGHT_ENCODER_CHANNELA_ID = 2, 
+  DRIVE_RIGHT_ENCODER_CHANNELB_ID = 3, 
+  DRIVE_GYRO_ID = 6,
   DRIVE_FRONT_DISTANCE_PING_ID = 10, 
   DRIVE_FRONT_DISTANCE_ECHO_ID = 11, 
   DRIVE_BACK_DISTANCE_PING_ID = 12, 
@@ -90,7 +90,9 @@ public static final double ksVolts = 1.0,
   kTrackWidthMeters = 1.0,
   kMaxSpeedMetersPerSecond = 5.0,   // TODO: Adjust this for speed contraints
   kMaxAccelerationMetersPerSecondSquared = 1.0;
+
 public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackWidthMeters);
+
 
 // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
 public static final double kRamseteB = 2, kRamseteZeta = 0.7;
@@ -99,8 +101,8 @@ public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI)
 
 
 // Climb Subsystem IDs
-public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 
-  CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
+public static final int CLIMBER_ENCODER_CHANNELA_ID = 4, 
+  CLIMBER_FRONT_ENCODER_CHANNELB_ID = 5, 
   CLIMBER_TALON_SRX_ID = 30;
 public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = (15.24 * Math.PI) / 256; //diameter tbd          
 

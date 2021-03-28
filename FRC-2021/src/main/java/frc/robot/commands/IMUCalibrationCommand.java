@@ -16,6 +16,7 @@ public class IMUCalibrationCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    Robot.driveSubsystem.resetIMU();
     Robot.driveSubsystem.calibrateIMU();
 
   }
