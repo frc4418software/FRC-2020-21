@@ -103,7 +103,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    distance = driveSubsystem.getBackDriveDistance();
+    // distance = driveSubsystem.getBackDriveDistance();
     AutoRoutineChooser.setDriveTrajectory();
     robotPosition = DriverStation.getInstance().getLocation();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
