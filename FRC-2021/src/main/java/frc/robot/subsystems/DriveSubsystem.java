@@ -40,12 +40,12 @@ public class DriveSubsystem extends SubsystemBase {
   private Encoder leftDriveEncoder;
   private Encoder rightDriveEncoder;
   
-  private AnalogGyro driveGyro;
+  // private AnalogGyro driveGyro;
   
   private BuiltInAccelerometer driveAccel;
   
-  private Ultrasonic frontDriveDistance;
-  private Ultrasonic backDriveDistance;
+  // private Ultrasonic frontDriveDistance;
+  // private Ultrasonic backDriveDistance;
 
   private ADIS16448_IMU imu;
 
@@ -69,6 +69,10 @@ public class DriveSubsystem extends SubsystemBase {
 
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
+    leftDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
+    rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
+    leftDriveEncoder.reset();
+    rightDriveEncoder.reset();
     
     // driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
     // driveGyro.initGyro();
@@ -83,11 +87,6 @@ public class DriveSubsystem extends SubsystemBase {
 
     setLeftBrakemode(false);
     setRightBrakemode(false);
-
-    leftDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
-    rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
-    leftDriveEncoder.reset();
-    rightDriveEncoder.reset();
   }
 
 
