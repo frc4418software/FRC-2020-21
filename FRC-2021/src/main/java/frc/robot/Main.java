@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
@@ -206,18 +207,23 @@ public final class Main {
 
     System.out.println("\n\n******************** Start Gyro Test ********************\n\n");
 
-    AnalogInput gyro = new AnalogInput(Constants.expectedGyro);
     // if(gyro.getValue()!=0){
     //   System.out.println("Found expected gyro on " + Constants.expectedGyro);
     // }else{
     //   System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
     //   DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
     // }
+    AnalogGyro gyro = new AnalogGyro(Constants.expectedGyro);
+    // driveGyro.initGyro();
+    // driveGyro.calibrate();
     if (gyro == null) {
       System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
       DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
     } else {
-      System.out.println("Found expected gyro on " + Constants.expectedGyro);
+      System.out.println("Found expected gyro on " + Constants.expectedGyro + ", doing 20 test prints now...");
+      for (int i=0; i<20; i++) {
+        System.out.println("\tTEST PRINT: " + gyro.getAngle() + " degrees");
+      }
     }
     gyro.close();
 

@@ -69,7 +69,11 @@ public class DriveSubsystem extends SubsystemBase {
 
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
+    
     driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
+    driveGyro.initGyro();
+    driveGyro.calibrate();
+    
     driveAccel = new BuiltInAccelerometer();
     imu = new ADIS16448_IMU();
     frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
