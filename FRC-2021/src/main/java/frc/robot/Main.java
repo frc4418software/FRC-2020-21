@@ -146,21 +146,13 @@ public final class Main {
 
 
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** End CAN Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** End CAN Test ********************\n\n");
 
     // END CAN TEST
 
     // START DIO Encoder TEST
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** Start Encoder Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** Start Encoder Test ********************\n\n");
 
     ArrayList<Integer> expectedEnc = new ArrayList<Integer>();
     for(int i = 0; i < Constants.expectedDIOEncoders.length; i++){
@@ -180,21 +172,13 @@ public final class Main {
       dioB.close();
     }
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** End Encoder Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** End Encoder Test ********************\n\n");
 
     // END DIO ENCODER TEST
     
     // START DIO ULTRASONIC TEST
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** Start Ultrasonic Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** Start Ultrasonic Test ********************\n\n");
 
     ArrayList<Integer> expectedUltrasonic = new ArrayList<Integer>();
     for(int i = 0; i < Constants.expectedDIOUltrasonic.length; i++){
@@ -214,28 +198,26 @@ public final class Main {
       dioEcho.close();
     }
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** End Ultrasonic Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** End Ultrasonic Test ********************\n\n");
 
     // END DIO ULTRASONIC TEST
 
     // START GYRO TEST
 
-    System.out.println();
-    System.out.println();
-    System.out.println("******************** Start Gyro Test ********************");
-    System.out.println();
-    System.out.println();
+    System.out.println("\n\n******************** Start Gyro Test ********************\n\n");
 
     AnalogInput gyro = new AnalogInput(Constants.expectedGyro);
-    if(gyro.getValue()!=0){
-      System.out.println("Found expected gyro on " + Constants.expectedGyro);
-    }else{
+    // if(gyro.getValue()!=0){
+    //   System.out.println("Found expected gyro on " + Constants.expectedGyro);
+    // }else{
+    //   System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
+    //   DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
+    // }
+    if (gyro == null) {
       System.out.println("Did not find expected gyro on " + Constants.expectedGyro);
       DriverStation.reportWarning("Did not find expected gyro on " + Constants.expectedGyro, false);
+    } else {
+      System.out.println("Found expected gyro on " + Constants.expectedGyro);
     }
     gyro.close();
 
