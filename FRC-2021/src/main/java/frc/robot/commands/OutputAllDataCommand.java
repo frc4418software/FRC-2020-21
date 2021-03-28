@@ -28,14 +28,14 @@ public class OutputAllDataCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    SmartDashboard.putNumber("Drive Left Drive Value", Robot.driveSubsystem.getLeftDriveValue());
-    SmartDashboard.putNumber("Drive Right Drive Value", Robot.driveSubsystem.getRightDriveValue());
+    SmartDashboard.putNumber("Left Drive Value", Robot.driveSubsystem.getLeftDriveValue());
+    SmartDashboard.putNumber("Right Drive Value", Robot.driveSubsystem.getRightDriveValue());
     // SmartDashboard.putNumber("Drive Gyro Value", Robot.driveSubsystem.getGyroValue());
-    SmartDashboard.putNumber("Drive Left Encoder", Robot.driveSubsystem.getLeftDriveEncoder());
-    SmartDashboard.putNumber("Drive Right Encoder", Robot.driveSubsystem.getRightDriveEncoder());
-    SmartDashboard.putNumber("Drive Accel X", Robot.driveSubsystem.getDriveAccelX());
-    SmartDashboard.putNumber("Drive Accel Y", Robot.driveSubsystem.getDriveAccelY());
-    SmartDashboard.putNumber("Drive Accel Z", Robot.driveSubsystem.getDriveAccelZ());
+    SmartDashboard.putNumber("Left Encoder", Robot.driveSubsystem.getLeftDriveEncoder());
+    SmartDashboard.putNumber("Right Encoder", Robot.driveSubsystem.getRightDriveEncoder());
+    SmartDashboard.putNumber("Accel X", Robot.driveSubsystem.getDriveAccelX());
+    SmartDashboard.putNumber("Accel Y", Robot.driveSubsystem.getDriveAccelY());
+    SmartDashboard.putNumber("Accel Z", Robot.driveSubsystem.getDriveAccelZ());
     // SmartDashboard.putNumber("IMU angle", Robot.driveSubsystem.getIMUAngle());
     SmartDashboard.putNumber("IMU rate", Robot.driveSubsystem.getIMURate());
     
