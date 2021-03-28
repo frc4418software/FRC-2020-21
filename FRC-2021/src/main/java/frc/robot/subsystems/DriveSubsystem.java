@@ -70,28 +70,24 @@ public class DriveSubsystem extends SubsystemBase {
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
     
-    driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
-    driveGyro.initGyro();
-    driveGyro.calibrate();
+    // driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
+    // driveGyro.initGyro();
+    // driveGyro.calibrate();
     
     driveAccel = new BuiltInAccelerometer();
     imu = new ADIS16448_IMU();
-    frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
-    backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
+    // frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
+    // backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
+    // frontDriveDistance.setEnabled(true);
+    // backDriveDistance.setEnabled(true);
 
     setLeftBrakemode(false);
     setRightBrakemode(false);
-
-    driveGyro.initGyro();
-    driveGyro.calibrate();
 
     leftDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
     rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
     leftDriveEncoder.reset();
     rightDriveEncoder.reset();
-
-    frontDriveDistance.setEnabled(true);
-    backDriveDistance.setEnabled(true);
   }
 
 
@@ -123,7 +119,7 @@ public class DriveSubsystem extends SubsystemBase {
   // set the left breaks to break or coast
   public void setLeftBrakemode(boolean isBraking) {
     // when true, set to breaking mode
-    if(isBraking) {
+    if (isBraking) {
       leftDriveMotor1.setNeutralMode(NeutralMode.Brake);
       leftDriveMotor2.setNeutralMode(NeutralMode.Brake);
     } else { // else set to coast
@@ -135,7 +131,7 @@ public class DriveSubsystem extends SubsystemBase {
   // set the right breaks to break or coast
   public void setRightBrakemode(boolean isBraking) {
     // when true, set to breaking mode
-    if(isBraking) {
+    if (isBraking) {
       rightDriveMotor1.setNeutralMode(NeutralMode.Brake);
       rightDriveMotor2.setNeutralMode(NeutralMode.Brake);
     } else { // else set to coast
@@ -313,9 +309,7 @@ public class DriveSubsystem extends SubsystemBase {
     imu.reset();
   }
 
-  public double getIMUAngle(){
-    return imu.getAngle();
-  }
+  public double getIMUAngle(){ return -10.01; }// return imu.getAngle(); }
 
   public double getIMURate() {
     return imu.getRate();
@@ -358,25 +352,25 @@ public class DriveSubsystem extends SubsystemBase {
 
   // Range finder
 
-  // read front distance
-  public double getFrontDriveDistance(){
-    return (frontDriveDistance.getRangeMM() * 100.0)/2;
-  }
+  // // read front distance
+  // public double getFrontDriveDistance(){
+  //   return (frontDriveDistance.getRangeMM() * 100.0)/2;
+  // }
 
-  //read back distance
-  public double getBackDriveDistance(){
-    return (backDriveDistance.getRangeMM() * 100.0)/2;
-  }
+  // //read back distance
+  // public double getBackDriveDistance(){
+  //   return (backDriveDistance.getRangeMM() * 100.0)/2;
+  // }
 
-  //enable/disable front distance
-  public void setFrontDriveDistanceEnable(boolean enable){
-    frontDriveDistance.setEnabled(enable);
-  }
+  // //enable/disable front distance
+  // public void setFrontDriveDistanceEnable(boolean enable){
+  //   frontDriveDistance.setEnabled(enable);
+  // }
 
-  //enable/disable back distance
-  public void setBackDriveDistanceEnable(boolean enable){
-    backDriveDistance.setEnabled(enable);
-  }
+  // //enable/disable back distance
+  // public void setBackDriveDistanceEnable(boolean enable){
+  //   backDriveDistance.setEnabled(enable);
+  // }
 
   public double getAverageEncoderDistance() {
     return (leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance())/2.0;

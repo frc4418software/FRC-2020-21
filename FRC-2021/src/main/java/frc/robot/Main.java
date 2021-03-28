@@ -177,23 +177,23 @@ public final class Main {
 
     System.out.println("\n\n******************** Start Ultrasonic Test ********************\n\n");
 
-    ArrayList<Integer> expectedUltrasonic = new ArrayList<Integer>();
-    for(int i = 0; i < Constants.expectedDIOUltrasonic.length; i++){
-      expectedUltrasonic.add(Constants.expectedDIOUltrasonic[i]);
-    }
+    // ArrayList<Integer> expectedUltrasonic = new ArrayList<Integer>();
+    // for(int i = 0; i < Constants.expectedDIOUltrasonic.length; i++){
+    //   expectedUltrasonic.add(Constants.expectedDIOUltrasonic[i]);
+    // }
 
-    for(int i = 0; i < expectedUltrasonic.size(); i+=2){
-      DigitalOutput dioPing = new DigitalOutput(expectedUltrasonic.get(i));
-      DigitalInput dioEcho = new DigitalInput(expectedUltrasonic.get(i+1));
-      if(!dioPing.get() || !dioEcho.get()){
-        System.out.println("Found expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1));
-      }else{
-        System.out.println("Did not find expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1));
-        DriverStation.reportError("Did not find expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1), false);
-      }
-      dioPing.close();
-      dioEcho.close();
-    }
+    // for(int i = 0; i < expectedUltrasonic.size(); i+=2){
+    //   DigitalOutput dioPing = new DigitalOutput(expectedUltrasonic.get(i));
+    //   DigitalInput dioEcho = new DigitalInput(expectedUltrasonic.get(i+1));
+    //   if(!dioPing.get() || !dioEcho.get()){
+    //     System.out.println("Found expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1));
+    //   }else{
+    //     System.out.println("Did not find expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1));
+    //     DriverStation.reportError("Did not find expected DIO Ultrasonic connected to ports " + expectedEnc.get(i) + " and " + expectedEnc.get(i+1), false);
+    //   }
+    //   dioPing.close();
+    //   dioEcho.close();
+    // }
 
     System.out.println("\n\n******************** End Ultrasonic Test ********************\n\n");
 

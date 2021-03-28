@@ -36,7 +36,7 @@ public class OutputAllDataCommand extends CommandBase {
     SmartDashboard.putNumber("Drive Accel X", Robot.driveSubsystem.getDriveAccelX());
     SmartDashboard.putNumber("Drive Accel Y", Robot.driveSubsystem.getDriveAccelY());
     SmartDashboard.putNumber("Drive Accel Z", Robot.driveSubsystem.getDriveAccelZ());
-    SmartDashboard.putNumber("IMU angle", Robot.driveSubsystem.getIMUAngle());
+    // SmartDashboard.putNumber("IMU angle", Robot.driveSubsystem.getIMUAngle());
     SmartDashboard.putNumber("IMU rate", Robot.driveSubsystem.getIMURate());
     
   }
