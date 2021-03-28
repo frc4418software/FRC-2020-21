@@ -258,7 +258,7 @@ public class DriveSubsystem extends SubsystemBase {
   // //Controls the left and right sides of the drive directly with voltages. (this is mainly for auto)
   public void driveVolts(double leftVolts, double rightVolts) {
     leftDriveMotor1.setVoltage(leftVolts);
-    rightDriveMotor1.setVoltage(-rightVolts);
+    rightDriveMotor1.setVoltage(rightVolts);
     robotDrive.feed();
   }
 
@@ -268,7 +268,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   //read left encoder
   public double getLeftDriveEncoder(){
-    return -leftDriveEncoder.getDistance();
+    return leftDriveEncoder.getDistance();
   }
 
   //read right encoder
