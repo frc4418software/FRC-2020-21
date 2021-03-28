@@ -74,12 +74,6 @@ public class DriveSubsystem extends SubsystemBase {
     rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
     leftDriveEncoder.reset();
     rightDriveEncoder.reset();
-
-    if (leftDriveEncoder.getStopped()) {
-      DriverStation.reportError("\n\nLeft encoder is stopped!!!\n\n", false);
-    } else if (rightDriveEncoder.getStopped()) {
-      DriverStation.reportError("\n\nRight encoder is stopped!!!\n\n", false);
-    }
     
     // driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
     // driveGyro.initGyro();
@@ -301,6 +295,16 @@ public class DriveSubsystem extends SubsystemBase {
   public void resetEncoders(){
     resetLeftDriveEncoder();
     resetRightDriveEncoder();
+  }
+
+  public void printEncodersStopped() {
+    if (leftDriveEncoder.getStopped()) {
+      System.out.println("\n\nLeft encoder is stopped!!!\n\n");
+      DriverStation.reportError("\n\nLeft encoder is stopped!!!\n\n", false);
+    } else if (rightDriveEncoder.getStopped()) {
+      System.out.println("\n\nRight encoder is stopped!!!\n\n");
+      DriverStation.reportError("\n\nRight encoder is stopped!!!\n\n", false);
+    }
   }
 
 
