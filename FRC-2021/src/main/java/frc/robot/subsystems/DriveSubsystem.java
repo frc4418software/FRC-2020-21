@@ -372,7 +372,7 @@ public class DriveSubsystem extends SubsystemBase {
   //   return (backDriveDistance.getRangeMM() * 100.0)/2;
   // }
 
-  // //enable/disable front distance
+  // //enable/disable front distance1
   // public void setFrontDriveDistanceEnable(boolean enable){
   //   frontDriveDistance.setEnabled(enable);
   // }
