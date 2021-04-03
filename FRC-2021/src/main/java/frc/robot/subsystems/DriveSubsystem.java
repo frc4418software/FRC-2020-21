@@ -150,7 +150,11 @@ public class DriveSubsystem extends SubsystemBase {
 
   //drive both motors at once
   public void tankDrive(double leftValue, double rightValue){
-    robotDrive.tankDrive(leftValue, rightValue);
+    if(Constants.isRobotDirectionForward()){
+      robotDrive.tankDrive(-leftValue, -rightValue);
+    }else{
+      robotDrive.tankDrive(rightValue, leftValue);
+    }
     
   }
 
@@ -162,8 +166,12 @@ public class DriveSubsystem extends SubsystemBase {
 
   // standard arcade drive with directional toggle
   public void arcadeDrive(double forwardValue, double angleValue) {
-    robotDrive.arcadeDrive(-forwardValue, angleValue);
-    
+    if(Constants.isRobotDirectionForward()) {
+      robotDrive.arcadeDrive(-forwardValue, -angleValue);
+    } else {
+      robotDrive.arcadeDrive(forwardValue, -angleValue);
+    }
+     
   }
 
   // a wrapper around arcade to make my life easy

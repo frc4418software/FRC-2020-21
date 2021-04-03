@@ -35,7 +35,7 @@ public class RobotContainer {
                                 X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID) ,
                                 GAMEPAD = new Joystick(Constants.GAMEPAD_JOYSTICK_ID);
   
-  // Get axis for specific functions
+  // Get axis for specific functions 
   public static double getLeftTankDriveAxis() {
     return X3D_LEFT.getRawAxis(Constants.LEFT_TANK_DRIVE_AXIS_ID);
   }
@@ -54,6 +54,7 @@ public class RobotContainer {
   }
 
   // Create and assign default buttons
+  public static JoystickButton swapFrontButton = new JoystickButton(X3D_RIGHT, Constants.SWAP_DRIVE_DIRECTION_BUTTON_ID);
   public static JoystickButton toggleArcadeDriveButton = new JoystickButton(X3D_RIGHT, Constants.TOGGLE_ARCADE_DRIVE_BUTOON_ID);
   public static JoystickButton driveStraightButton = new JoystickButton(X3D_RIGHT, Constants.DRIVE_STRAIGHT_BUTTON_ID);
 
@@ -73,6 +74,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    swapFrontButton.whenPressed(new SwitchDirectionCommand());
     toggleArcadeDriveButton.whenPressed(new ToggleArcadeDriveCommand());
     driveStraightButton.whileHeld(new DriveStraightCommand());
 

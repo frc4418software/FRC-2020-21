@@ -38,8 +38,8 @@ public final class Constants {
   X3D_AXIS_ROLL = 0,
   /*X3D_AXIS_YAW = 2,
   X3D_AXIS_OTHER = 3,
-  X3D_BUTTON_TRIGGER = 1, // X3d buttons
-  */X3D_BUTTON_GRIP = 2,/*
+  */X3D_BUTTON_TRIGGER = 1, // X3d buttons
+  X3D_BUTTON_GRIP = 2,/*
   X3D_BUTTON_3 = 3,
   X3D_BUTTON_4 = 4,*/
   X3D_BUTTON_5 = 5//,
@@ -62,6 +62,7 @@ public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   ANGLE_ARCADE_DRIVE_AXIS_ID = X3D_AXIS_ROLL,
   TOGGLE_ARCADE_DRIVE_BUTOON_ID = X3D_BUTTON_5,
   DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP,
+  SWAP_DRIVE_DIRECTION_BUTTON_ID = X3D_BUTTON_TRIGGER,
   CLIMB_AXIS_ID = GAMEPAD_AXIS_LEFT_Y;
 
 // Drive Subsystem IDs
@@ -85,6 +86,18 @@ public static final int CLIMBER_ENCODER_CHANNELA_ID = 2,
   CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
   CLIMBER_TALON_SRX_ID = 30;
 //public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = ;          tbd
+
+// Robot direction
+private static boolean robotDirectionIsForward = true;
+public static boolean isRobotDirectionForward() {
+  return robotDirectionIsForward;
+}
+public static void toggleRobotDirection() {
+  robotDirectionIsForward = !robotDirectionIsForward;
+}
+public static void setRobotDirection(boolean isForward) {
+  robotDirectionIsForward = isForward;
+}
 
 // RIO Post Info
 public static int[] expectedTalonIDs = {DRIVE_LEFT_A_TALON_SRX_ID, DRIVE_LEFT_B_TALON_SRX_ID, DRIVE_RIGHT_A_TALON_SRX_ID, 
