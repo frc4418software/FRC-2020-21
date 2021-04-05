@@ -30,7 +30,7 @@ public class SemiAutoFireCommand extends CommandBase {
     SmartDashboard.putNumber("Bottom Fire", Robot.manipulatorsubsystem.getBottomFireMotor());
     SmartDashboard.putNumber("Top Fire", Robot.manipulatorsubsystem.getTopFireMotor());
     SmartDashboard.putNumber("Load", Robot.manipulatorsubsystem.getLoadMotor());
-    Robot.manipulatorsubsystem.setBottomFireMotor(.24);
+    Robot.manipulatorsubsystem.setBottomFireMotor(-.24);
     Robot.manipulatorsubsystem.setTopFireMotor(-.6);
     try{
       Thread.sleep(1000);

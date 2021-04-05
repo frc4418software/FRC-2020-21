@@ -41,7 +41,7 @@ public class DriveSubsystem extends SubsystemBase {
   private Ultrasonic frontDriveDistance;
   private Ultrasonic backDriveDistance;
 
-  private boolean arcadeDrive = false;
+  private boolean arcadeDrive = true;
   public DriveSubsystem() {
     leftDriveMotor1 = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
     leftDriveMotor2 = new WPI_TalonSRX(Constants.DRIVE_LEFT_B_TALON_SRX_ID);

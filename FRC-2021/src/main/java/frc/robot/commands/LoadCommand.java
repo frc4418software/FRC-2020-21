@@ -28,7 +28,7 @@ public class LoadCommand extends CommandBase {
   @Override
   public void execute() {
     SmartDashboard.putNumber("Load Motor", Robot.manipulatorsubsystem.getLoadMotor());
-    Robot.manipulatorsubsystem.setLoadMotor(.5);
+    Robot.manipulatorsubsystem.setLoadMotor(-.9);
   }
 
   // Called once the command ends or is interrupted.
