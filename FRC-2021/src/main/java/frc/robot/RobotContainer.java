@@ -29,7 +29,6 @@ public class RobotContainer {
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  
   // Create joysticks
   private static final Joystick X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
                                 X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID) ,
@@ -39,6 +38,7 @@ public class RobotContainer {
   public static double getLeftTankDriveAxis() {
     return X3D_LEFT.getRawAxis(Constants.LEFT_TANK_DRIVE_AXIS_ID);
   }
+
   public static double getRightTankDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.RIGHT_TANK_DRIVE_AXIS_ID);
   }
@@ -46,12 +46,15 @@ public class RobotContainer {
   public static double getForwardArcadeDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.FORWARD_ARCADE_DRIVE_AXIS_ID);
   }
+
   public static double getAngleArcadeDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.ANGLE_ARCADE_DRIVE_AXIS_ID);
   }
+
   public static double getClimberAxis() {
     return GAMEPAD.getRawAxis(Constants.CLIMB_AXIS_ID);
   } 
+  }
 
   // Create and assign default buttons
   public static JoystickButton toggleArcadeDriveButton = new JoystickButton(X3D_RIGHT, Constants.TOGGLE_ARCADE_DRIVE_BUTOON_ID);
