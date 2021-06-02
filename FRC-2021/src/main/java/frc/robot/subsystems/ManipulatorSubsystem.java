@@ -17,9 +17,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ManipulatorSubsystem extends SubsystemBase {
-  /**
-   * Creates a new ShootSubsystem.
-   */
   private WPI_TalonSRX bottomFireMotor;
   private WPI_TalonSRX topFireMotor;
   private WPI_TalonSRX loadMotor;
@@ -38,57 +35,24 @@ public class ManipulatorSubsystem extends SubsystemBase {
     loadMotor = new WPI_TalonSRX(Constants.MAN_LOAD_TALON_SRX_ID);
     intakeMotor = new WPI_VictorSPX(Constants.MAN_INTAKE_VICTOR_SPX_ID);
   }
-  //set and get the motors stuff
 
-  //control bottom fire motor
-  //right is bottom for now
-  public void setBottomFireMotor(double motorValue){
-    bottomFireMotor.set(ControlMode.PercentOutput, motorValue);
-  }
-  public void setTopFireMotor(double motorValue){
-    topFireMotor.set(ControlMode.PercentOutput, motorValue);
-  }
-  public void setLoadMotor(double motorValue){
-    loadMotor.set(ControlMode.PercentOutput, motorValue);
-  }
-  public void setIntakeMotor(double motorValue){
-    intakeMotor.set(ControlMode.PercentOutput, motorValue);
-  }
-  public void setPivotMotor(double motorValue){
-    pivotMotor.set(ControlMode.PercentOutput, motorValue);
-  }
+  // set motors
+  public void setBottomFireMotor(double motorValue){ bottomFireMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setTopFireMotor(double motorValue){ topFireMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setLoadMotor(double motorValue){ loadMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setIntakeMotor(double motorValue){ intakeMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setPivotMotor(double motorValue){ pivotMotor.set(ControlMode.PercentOutput, motorValue); }
 
-  //stop the motors
-  public void stopBottomFireMotor(){
-    bottomFireMotor.set(ControlMode.PercentOutput, 0);
-  }
-  public void stopTopFireMotor(){
-    topFireMotor.set(ControlMode.PercentOutput, 0);
-  }
-  public void stopLoadMotor(){
-    loadMotor.set(ControlMode.PercentOutput, 0);
-  }
-  public void stopIntakeMotor(){
-    intakeMotor.set(ControlMode.PercentOutput, 0);
-  }
+  //read motors
+  public double getBottomFireMotor() { return bottomFireMotor.getMotorOutputPercent(); }
+  public double getTopFireMotor() { return topFireMotor.getMotorOutputPercent(); }
+  public double getLoadMotor() { return loadMotor.getMotorOutputPercent(); }
+  public double getIntakeMotor() { return intakeMotor.getMotorOutputPercent(); }
+  public double getPivotMotor() { return pivotMotor.getMotorOutputPercent(); }
 
-  //read bottom fire motor
-  public double getBottomFireMotor(){
-    return bottomFireMotor.getMotorOutputPercent();
-  }
-  public double getTopFireMotor(){
-    return topFireMotor.getMotorOutputPercent();
-  }
-  public double getLoadMotor(){
-    return loadMotor.getMotorOutputPercent();
-  }
-  public double getIntakeMotor(){
-    return intakeMotor.getMotorOutputPercent();
-  }
-  public double getPivotMotor(){
-    return pivotMotor.getMotorOutputPercent(); 
-  }
-  
+  // read potentiometer
+  public double getPivotPotentiometer() { return pivotPotentiometer.get(); }
+
   // get whether the pivot is up
   public boolean pivotIsUp(){
     if( getPivotPotentiometer() > 13){
@@ -98,17 +62,7 @@ public class ManipulatorSubsystem extends SubsystemBase {
       return !pivotUp;
     }
   }
-  
-
-  //Potentiometer stuffs (I hope this works)
-  //read potentiometer
-  public double getPivotPotentiometer(){
-    return pivotPotentiometer.get();
-  }
-
 
   @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+  public void periodic() {}
 }

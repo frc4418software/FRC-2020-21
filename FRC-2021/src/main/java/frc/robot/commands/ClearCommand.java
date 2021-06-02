@@ -8,12 +8,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+
 import frc.robot.Robot;
 
+
 public class ClearCommand extends CommandBase {
-  /**
-   * Creates a new ClearCommand.
-   */
   public ClearCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -26,13 +25,14 @@ public class ClearCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // spins load motor backwards (100% backwards)
     Robot.manipulatorsubsystem.setLoadMotor(-1);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.manipulatorsubsystem.stopLoadMotor();
+    Robot.manipulatorsubsystem.setLoadMotor(0.0);
   }
 
   // Returns true when the command should end.

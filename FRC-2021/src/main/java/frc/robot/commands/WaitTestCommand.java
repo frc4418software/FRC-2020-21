@@ -10,12 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+
 public class WaitTestCommand extends CommandBase {
-  /**
-   * Creates a new WaitTestCommand.
-   */
-  boolean testStart = false;
-  boolean testFinish = false;
+  private boolean testStart = false;
+  private boolean testFinish = false;
 
   public WaitTestCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -35,7 +33,6 @@ public class WaitTestCommand extends CommandBase {
     try {
       Thread.sleep(3000);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     testFinish = true;

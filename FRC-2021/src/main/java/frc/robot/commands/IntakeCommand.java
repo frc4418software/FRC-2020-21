@@ -9,12 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+
 import frc.robot.Robot;
 
+
 public class IntakeCommand extends CommandBase {
-  /**
-   * Creates a new IntakeCommand.
-   */
   public IntakeCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -34,7 +33,7 @@ public class IntakeCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.manipulatorsubsystem.stopIntakeMotor();
+    Robot.manipulatorsubsystem.setIntakeMotor(0.0);
   }
 
   // Returns true when the command should end.

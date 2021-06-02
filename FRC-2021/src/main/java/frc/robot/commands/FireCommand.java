@@ -10,12 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+
 import frc.robot.Robot;
 
+
 public class FireCommand extends CommandBase {
-  /**
-   * Creates a new FireCommand.
-   */
   public FireCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -47,8 +46,8 @@ public class FireCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.manipulatorsubsystem.stopBottomFireMotor();
-    Robot.manipulatorsubsystem.stopTopFireMotor();
+    Robot.manipulatorsubsystem.setBottomFireMotor(0.0);
+    Robot.manipulatorsubsystem.setTopFireMotor(0.0);
   }
 
   // Returns true when the command should end.
