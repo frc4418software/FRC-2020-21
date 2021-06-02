@@ -53,7 +53,6 @@ public class RobotContainer {
 
   public static double getClimberAxis() {
     return GAMEPAD.getRawAxis(Constants.CLIMB_AXIS_ID);
-  } 
   }
 
   // Create and assign default buttons
