@@ -32,7 +32,6 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public ManipulatorSubsystem() {
     bottomFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_BOTTOM_TALON_SRX_ID);
     topFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_TOP_TALON_SRX_ID);
-    loadMotor = new WPI_TalonSRX(Constants.MAN_LOAD_TALON_SRX_ID);
     intakeMotor = new WPI_VictorSPX(Constants.MAN_INTAKE_VICTOR_SPX_ID);
   }
 
