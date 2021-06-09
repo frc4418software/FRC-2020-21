@@ -27,8 +27,8 @@ public class PrintoutCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftMotors());
-    SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightMotors());
+    SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftPercent());
+    SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightPercent());
 
     SmartDashboard.putNumber("Left Distance", Robot.driveSubsystem.getLeftDistance());
     SmartDashboard.putNumber("Right Distance", Robot.driveSubsystem.getRightDistance());
