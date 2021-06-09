@@ -25,8 +25,7 @@ public class DriveStraightCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.brakeCoastLeftMotors(false);
-    Robot.driveSubsystem.brakeCoastRightMotors(false);
+    Robot.driveSubsystem.brakeOrCoastMotors(false, false);
     Robot.driveSubsystem.setLeftMotors(0.5);
     Robot.driveSubsystem.setRightMotors(-0.5);
   }

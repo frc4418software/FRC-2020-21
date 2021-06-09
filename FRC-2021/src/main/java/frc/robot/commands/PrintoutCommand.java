@@ -30,14 +30,17 @@ public class PrintoutCommand extends CommandBase {
     SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftMotors());
     SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightMotors());
 
-    SmartDashboard.putNumber("Gyro", Robot.sensorsSubsystem.getGyroValue());
+    SmartDashboard.putNumber("Left Distance", Robot.driveSubsystem.getLeftDistance());
+    SmartDashboard.putNumber("Right Distance", Robot.driveSubsystem.getRightDistance());
 
-    SmartDashboard.putNumber("Left Encoder", Robot.driveSubsystem.getLeftDriveEncoder());
-    SmartDashboard.putNumber("Right Encoder", Robot.driveSubsystem.getRightDriveEncoder());
+    SmartDashboard.putNumber("Left RPM", Robot.driveSubsystem.getLeftDistance());
+    SmartDashboard.putNumber("Right RPM", Robot.driveSubsystem.getRightDistance());
 
-    SmartDashboard.putNumber("Accel X", Robot.sensorsSubsystem.getDriveAccelX());
-    SmartDashboard.putNumber("Accel Y", Robot.sensorsSubsystem.getDriveAccelY());
-    SmartDashboard.putNumber("Accel Z", Robot.sensorsSubsystem.getDriveAccelZ());  
+    // SmartDashboard.putNumber("Gyro", Robot.sensorsSubsystem.getGyroValue());
+
+    // SmartDashboard.putNumber("Accel X", Robot.sensorsSubsystem.getDriveAccelX());
+    // SmartDashboard.putNumber("Accel Y", Robot.sensorsSubsystem.getDriveAccelY());
+    // SmartDashboard.putNumber("Accel Z", Robot.sensorsSubsystem.getDriveAccelZ());  
   }
 
   // Called once the command ends or is interrupted.

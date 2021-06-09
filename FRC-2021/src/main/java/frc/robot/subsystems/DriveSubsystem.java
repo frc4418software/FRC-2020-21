@@ -18,6 +18,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants;
 import frc.robot.commands.TeleopDriveCommand;
 import frc.robot.teamlibraries.DriveInputPipeline;
+import jdk.vm.ci.meta.Constant;
 
 
 public class DriveSubsystem extends SubsystemBase {
@@ -32,7 +33,7 @@ public class DriveSubsystem extends SubsystemBase {
   private Encoder rightDriveEncoder;
 
   public DriveSubsystem() {
-    // DRIVE MOTORS
+    // Drive Motors
     leftDriveMotorA = new WPI_TalonSRX(Constants.DRIVE_LEFT_A_TALON_SRX_ID);
     leftDriveMotorB = new WPI_TalonSRX(Constants.DRIVE_LEFT_B_TALON_SRX_ID);
     rightDriveMotorA = new WPI_TalonSRX(Constants.DRIVE_RIGHT_A_TALON_SRX_ID);
@@ -41,55 +42,53 @@ public class DriveSubsystem extends SubsystemBase {
     leftDriveMotorB.follow(leftDriveMotorA);
     rightDriveMotorB.follow(rightDriveMotorA);
 
+    // ----------------------------------------------------------
+
+    // Drive system
+    brakeOrCoastMotors(false, false);
+
     robotDrive = new DifferentialDrive(leftDriveMotorA, rightDriveMotorA);
 
+    // ----------------------------------------------------------
+
+    // Encoders
     leftDriveEncoder = new Encoder(Constants.DRIVE_LEFT_ENCODER_CHANNELA_ID, Constants.DRIVE_LEFT_ENCODER_CHANNELB_ID);
     rightDriveEncoder = new Encoder(Constants.DRIVE_RIGHT_ENCODER_CHANNELA_ID, Constants.DRIVE_RIGHT_ENCODER_CHANNELB_ID);
 
-    brakeCoastLeftMotors(false);
-    brakeCoastRightMotors(false);
-
-    // ENCODERS
     leftDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
     rightDriveEncoder.setDistancePerPulse(Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE);
+
     leftDriveEncoder.reset();
     rightDriveEncoder.reset();
   }
 
-  // set both left motors
   public void setLeftMotors(double negToPosPercentage){
     leftDriveMotorA.set(ControlMode.PercentOutput, negToPosPercentage);
   }
 
-  // set both right motors
   public void setRightMotors(double negToPosPercentage){
     rightDriveMotorA.set(ControlMode.PercentOutput, negToPosPercentage);
   }
 
-  // read shared left motors' percentage
-  public double getLeftMotors(){
+  public double getLeftPercent(){
     return leftDriveMotorA.getMotorOutputPercent();
   }
 
-  // read shared right motors' percentage
-  public double getRightMotors(){
+  public double getRightPercent(){
     return rightDriveMotorA.getMotorOutputPercent();
   }
 
-  // brake or coast left motors with boolean (true for braking)
-  public void brakeCoastLeftMotors(boolean isBraking) {
-    if (isBraking) {
+  // brake or coast left and right motors (true for braking)
+  public void brakeOrCoastMotors(boolean leftIsBraking, boolean rightIsBraking) {
+    if (leftIsBraking) {
       leftDriveMotorA.setNeutralMode(NeutralMode.Brake);
       leftDriveMotorB.setNeutralMode(NeutralMode.Brake);
     } else {
       leftDriveMotorA.setNeutralMode(NeutralMode.Coast);
       leftDriveMotorB.setNeutralMode(NeutralMode.Coast);
     }
-  }
 
-  // brake or coast right motors with boolean (true for braking)
-  public void brakeCoastRightMotors(boolean isBraking) {
-    if (isBraking) {
+    if (rightIsBraking) {
       rightDriveMotorA.setNeutralMode(NeutralMode.Brake);
       rightDriveMotorB.setNeutralMode(NeutralMode.Brake);
     } else {
@@ -98,29 +97,19 @@ public class DriveSubsystem extends SubsystemBase {
     }
   }
 
+  // ----------------------------------------------------------
+
   // Automatically set the breaks on when the robot is not moving
   // and disable them when the robot is moving
   public void autoBreakTankDrive(double[] values) {
-    // if the input is 0, set break, else don't
-    if (values[0] == 0.0) {
-      brakeCoastLeftMotors(true);
-    } else {
-      brakeCoastLeftMotors(false);
-    }
-
-    if (values[1] == 0.0) {
-      brakeCoastRightMotors(true);
-    } else {
-      brakeCoastRightMotors(false);
-    }
+    // brake motors if value is 0, else coast
+    brakeOrCoastMotors(values[0] == 0.0, values[1] == 0.0);
   }
 
-  //drive both motors at once
   public void tankDrive(double leftValue, double rightValue){
     robotDrive.tankDrive(leftValue, rightValue);
   }
-
-  // tank drive wrapper for double arrays
+  
   public void tankDrive(double[] values) { tankDrive(values[0], values[1]); }
 
   // standard arcade drive with directional toggle
@@ -180,24 +169,21 @@ public class DriveSubsystem extends SubsystemBase {
   // get whether the robot is in arcade drive mode or not
   public boolean isArcadeDrive() { return arcadeDrive; }
 
-  //read left encoder
-  public double getLeftDriveEncoder() { return -leftDriveEncoder.getDistance(); }
+  // ----------------------------------------------------------
 
-  //read right encoder
-  public double getRightDriveEncoder() { return rightDriveEncoder.getDistance(); }
+  public double getLeftDistance() { return -leftDriveEncoder.getDistance(); }
 
-  public double getDistance() {
-    return (getRightDriveEncoder() + getLeftDriveEncoder()) / 2.0;
-  }
+  public double getRightDistance() { return rightDriveEncoder.getDistance(); }
 
-  //reset left encoder
+  // two-sided encoder distance (average one-sided encoder distance)
+  public double getDistance() { return (getRightDistance() + getLeftDistance()) / 2.0; }
+
   public void resetLeftDriveEncoder() { leftDriveEncoder.reset(); }
 
-  //reset right encoder
-  public void resetRightDriveEncoder() { rightDriveEncoder.reset(); }
+  public void resetRightEncoder() { rightDriveEncoder.reset(); }
 
-  //reset both encoders
-  public void resetEncoders() { resetLeftDriveEncoder(); resetRightDriveEncoder(); }
+  // resets both
+  public void resetEncoders() { resetLeftDriveEncoder(); resetRightEncoder(); }
 
   @Override
   public void periodic() {

@@ -84,6 +84,7 @@ public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10,
   DRIVE_BACK_DISTANCE_PING_ID = 12, 
   DRIVE_BACK_DISTANCE_ECHO_ID = 13;
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
+public static final int DRIVE_ENCODER_DECODING_SCALE_FACTOR = 2;
 
 // Manipulator Subsystem IDs
 public static final int MAN_FIRE_BOTTOM_TALON_SRX_ID = 30,
