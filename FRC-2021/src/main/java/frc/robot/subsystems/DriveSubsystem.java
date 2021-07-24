@@ -18,7 +18,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants;
 import frc.robot.commands.TeleopDriveCommand;
 import frc.robot.teamlibraries.DriveInputPipeline;
-import jdk.vm.ci.meta.Constant;
 
 
 public class DriveSubsystem extends SubsystemBase {
@@ -185,9 +184,10 @@ public class DriveSubsystem extends SubsystemBase {
   // resets both
   public void resetEncoders() { resetLeftDriveEncoder(); resetRightEncoder(); }
 
+  
   @Override
   public void periodic() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new TeleopDriveCommand());
-  }
+  } 
 }

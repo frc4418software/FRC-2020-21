@@ -28,10 +28,15 @@ public class TeleopDriveCommand extends CommandBase {
   @Override
   public void execute() {
     if(Robot.driveSubsystem.isArcadeDrive()) {
-      Robot.driveSubsystem.teleopArcadeDriveWrapper(RobotContainer.getForwardArcadeDriveAxis(),
-          RobotContainer.getAngleArcadeDriveAxis());
+      Robot.driveSubsystem.teleopArcadeDriveWrapper(
+        RobotContainer.getForwardArcadeDriveAxis(), // forward
+        RobotContainer.getAngleArcadeDriveAxis()  // angle
+      );
     } else {
-      Robot.driveSubsystem.teleopTankDriveWrapper(RobotContainer.getLeftTankDriveAxis(), RobotContainer.getRightTankDriveAxis());
+      Robot.driveSubsystem.teleopTankDriveWrapper(
+        RobotContainer.getLeftTankDriveAxis(),  // left
+        RobotContainer.getRightTankDriveAxis()  // right
+      );
     }
   }
 

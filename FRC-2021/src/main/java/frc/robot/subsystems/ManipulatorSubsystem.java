@@ -28,10 +28,10 @@ public class ManipulatorSubsystem extends SubsystemBase {
   pulse per second * decoding factor = degrees per second
   degrees per second / 360 degrees = revolutions per second
   revolutions per second * 60 seconds = revolutions per minute (RPM) */
-  private static double distPerSecToRPM = 
-    Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE
-    * (double) Constants.DRIVE_ENCODER_DECODING_SCALE_FACTOR 
-    / 60.0;
+  // private static double distPerSecToRPM = 
+  //   Constants.DRIVE_ENCODER_DISTANCE_PER_PULSE
+  //   * (double) Constants.DRIVE_ENCODER_DECODING_SCALE_FACTOR 
+  //   / 60.0;
 
   private AnalogPotentiometer pivotPotentiometer;
 
@@ -53,6 +53,7 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public void setPivotMotor(double motorValue) { pivotMotor.set(ControlMode.PercentOutput, motorValue); }
 
   //read motors
+
   public double getBottomFireMotor() { return bottomFireMotor.getMotorOutputPercent(); }
   public double getTopFireMotor() { return topFireMotor.getMotorOutputPercent(); }
   public double getLoadMotor() { return loadMotor.getMotorOutputPercent(); }
@@ -63,9 +64,9 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public double getPivotPotentiometer() { return pivotPotentiometer.get(); }
 
   // (if confused about distPerSecToRPM static constant, check comment in definition)
-  public double getLeftEncoderRPM() { return -leftDriveEncoder.getRate() * distPerSecToRPM; }
+  // public double getLeftEncoderRPM() { return -leftDriveEncoder.getRate() * distPerSecToRPM; }
 
-  public double getRightEncoderRPM() { return -rightDriveEncoder.getRate() * distPerSecToRPM; }
+  // public double getRightEncoderRPM() { return -rightDriveEncoder.getRate() * distPerSecToRPM; }
 
   // get whether the pivot is up
   public boolean pivotIsUp(){

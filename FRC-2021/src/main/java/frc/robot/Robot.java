@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.PrintoutCommand;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ManipulatorSubsystem;
@@ -31,7 +30,6 @@ public class Robot extends TimedRobot {
   public static ManipulatorSubsystem manipulatorsubsystem = new ManipulatorSubsystem();
   public static SensorsSubsystem sensorsSubsystem = new SensorsSubsystem();
 
-  public static PrintoutCommand dataComm = new PrintoutCommand();
 
   // run when robot is started, put initialization code here
   @Override

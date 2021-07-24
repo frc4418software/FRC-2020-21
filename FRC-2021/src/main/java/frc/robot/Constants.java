@@ -17,7 +17,8 @@ package frc.robot;
  */
 public final class Constants {
     // Controller abstractions
-  private static final int //GAMEPAD_AXIS_LEFT_X = 0, // Gamepad axis
+  private static final int
+  //GAMEPAD_AXIS_LEFT_X = 0, // Gamepad axis
   GAMEPAD_AXIS_LEFT_Y = 1,
   /*GAMEPAD_AXIS_RIGHT_X = 4,
   GAMEPAD_AXIS_RIGHT_Y = 5,
@@ -38,7 +39,7 @@ public final class Constants {
   X3D_AXIS_ROLL = 0,
   /*X3D_AXIS_YAW = 2,
   X3D_AXIS_OTHER = 3,*/
-  X3D_BUTTON_TRIGGER = 1, // X3d buttons
+  // X3D_BUTTON_TRIGGER = 1, // X3d buttons
   X3D_BUTTON_GRIP = 2,
   X3D_BUTTON_3 = 3,
   X3D_BUTTON_4 = 4,
@@ -53,7 +54,8 @@ public final class Constants {
 
 
 // Controller IDs
-public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
+public static final int
+  X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   X3D_RIGHT_JOYSTICK_ID = 1,
   GAMEPAD_JOYSTICK_ID = 2,
   LEFT_TANK_DRIVE_AXIS_ID = X3D_AXIS_PITCH, // Tank drive axis
