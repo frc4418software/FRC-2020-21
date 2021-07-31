@@ -66,7 +66,6 @@ public class DriveInputPipeline {
                 value = Math.pow(value, 3);
                 break;
             case IMM_S: // apply an s shaped curve to the input
-                // TODO
                 break;
             default: // apply no curve
                 //DriverStation.reportWarning("Using the default input map for some reason, use a different one or fix this ya big dum dum.", false);

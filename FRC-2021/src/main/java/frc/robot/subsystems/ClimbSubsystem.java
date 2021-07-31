@@ -22,7 +22,7 @@ public class ClimbSubsystem extends SubsystemBase {
   private Encoder climbEncoder;
   
   public ClimbSubsystem() {
-    climbMotor = new WPI_TalonSRX(Constants.CLIMBER_TALON_SRX_ID);
+    climbMotor = new WPI_TalonSRX(Constants.CLIMBER_TALONSRX_ID);
   }
 
   public void SetClimb(double motorValue) {

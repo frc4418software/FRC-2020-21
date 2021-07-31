@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+// import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 //import edu.wpi.first.wpilibj.interfaces.Potentiometer;
@@ -20,8 +20,8 @@ public class ManipulatorSubsystem extends SubsystemBase {
   private WPI_TalonSRX bottomFireMotor;
   private WPI_TalonSRX topFireMotor;
   private WPI_TalonSRX loadMotor;
-  private WPI_TalonSRX pivotMotor;
-  private WPI_VictorSPX intakeMotor;
+  private WPI_TalonSRX topIntakeMotor;
+  private WPI_TalonSRX bottomIntakeMotor;
 
   /* Encoder.getRate() returns distance per second
   distance per second * distance per pulse = pulse per second
@@ -40,25 +40,27 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public boolean launchSpin;
 
   public ManipulatorSubsystem() {
-    bottomFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_BOTTOM_TALON_SRX_ID);
-    topFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_TOP_TALON_SRX_ID);
-    intakeMotor = new WPI_VictorSPX(Constants.MAN_INTAKE_VICTOR_SPX_ID);
+    bottomFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_BOTTOM_TALONSRX_ID);
+    topFireMotor = new WPI_TalonSRX(Constants.MAN_FIRE_TOP_TALONSRX_ID);
+
+    topIntakeMotor = new WPI_TalonSRX(Constants.MAN_INTAKE_TOP_TALONSRX_ID);
+    bottomIntakeMotor = new WPI_TalonSRX(Constants.MAN_INTAKE_BOTTOM_TALONSRX_ID);
   }
 
   // set motors
   public void setBottomFireMotor(double motorValue) { bottomFireMotor.set(ControlMode.PercentOutput, motorValue); }
   public void setTopFireMotor(double motorValue) { topFireMotor.set(ControlMode.PercentOutput, motorValue); }
   public void setLoadMotor(double motorValue) { loadMotor.set(ControlMode.PercentOutput, motorValue); }
-  public void setIntakeMotor(double motorValue) { intakeMotor.set(ControlMode.PercentOutput, motorValue); }
-  public void setPivotMotor(double motorValue) { pivotMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setTopIntakeMotor(double motorValue) { topIntakeMotor.set(ControlMode.PercentOutput, motorValue); }
+  public void setBottomIntakeMotor(double motorValue) { bottomIntakeMotor.set(ControlMode.PercentOutput, motorValue); }
 
   //read motors
 
   public double getBottomFireMotor() { return bottomFireMotor.getMotorOutputPercent(); }
   public double getTopFireMotor() { return topFireMotor.getMotorOutputPercent(); }
   public double getLoadMotor() { return loadMotor.getMotorOutputPercent(); }
-  public double getIntakeMotor() { return intakeMotor.getMotorOutputPercent(); }
-  public double getPivotMotor() { return pivotMotor.getMotorOutputPercent(); }
+  public double getTopIntakeMotor() { return topIntakeMotor.getMotorOutputPercent(); }
+  public double getBottomIntakeMotor() { return bottomIntakeMotor.getMotorOutputPercent(); }
 
   // read potentiometer
   public double getPivotPotentiometer() { return pivotPotentiometer.get(); }
@@ -72,8 +74,7 @@ public class ManipulatorSubsystem extends SubsystemBase {
   public boolean pivotIsUp(){
     if( getPivotPotentiometer() > 13){
       return pivotUp;
-    }
-    else{
+    } else {
       return !pivotUp;
     }
   }

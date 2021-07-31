@@ -83,7 +83,7 @@ public class RobotContainer {
     toggleArcadeDriveButton.whenPressed(new ToggleArcadeDriveCommand());
     driveStraightButton.whileHeld(new DriveStraightCommand());
     // testButton.whileHeld(new WaitTestCommand());
-    // intakeButton.whileHeld(new IntakeCommand());
+    intakeButton.whileHeld(new IntakeCommand());
     // launchButton.whileHeld(new FireCommand());
     // semiAutoButton.whileHeld(new SemiAutoFireCommand());
   }

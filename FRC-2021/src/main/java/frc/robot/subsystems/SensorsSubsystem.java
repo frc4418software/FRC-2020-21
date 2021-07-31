@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
@@ -21,10 +20,10 @@ public class SensorsSubsystem extends SubsystemBase {
 
   /** Creates a new SensorsSubsystem. */
   public SensorsSubsystem() {
-    driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
+    // driveGyro = new AnalogGyro(Constants.DRIVE_GYRO_ID);
     driveAccel = new BuiltInAccelerometer();
-    frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
-    backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
+    // frontDriveDistance = new Ultrasonic(Constants.DRIVE_FRONT_DISTANCE_PING_ID, Constants.DRIVE_FRONT_DISTANCE_ECHO_ID);
+    // backDriveDistance = new Ultrasonic(Constants.DRIVE_BACK_DISTANCE_PING_ID, Constants.DRIVE_BACK_DISTANCE_ECHO_ID);
 
     driveGyro.initGyro();
     driveGyro.calibrate();
