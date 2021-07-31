@@ -37,6 +37,7 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     Robot.manipulatorsubsystem.setTopIntakeMotor(0.0);
+    Robot.manipulatorsubsystem.setBottomIntakeMotor(0.0);
   }
 
   // Returns true when the command should end.
