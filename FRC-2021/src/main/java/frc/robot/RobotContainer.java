@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 import frc.robot.commands.*;
-import frc.robot.Constants;
 //import frc.robot.subsystems.*;
 
 /**
@@ -29,12 +29,12 @@ public class RobotContainer {
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  
   // Create joysticks
-  private static final Joystick X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
-                                X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID) ,
-                                GAMEPAD = new Joystick(Constants.GAMEPAD_JOYSTICK_ID);
-  
+  private static final Joystick
+    X3D_LEFT = new Joystick(Constants.X3D_LEFT_JOYSTICK_ID),
+    X3D_RIGHT = new Joystick(Constants.X3D_RIGHT_JOYSTICK_ID),
+    GAMEPAD = new Joystick(Constants.GAMEPAD_JOYSTICK_ID);
+
   // Get axis for specific functions
   public static double getLeftTankDriveAxis() {
     return X3D_LEFT.getRawAxis(Constants.LEFT_TANK_DRIVE_AXIS_ID);
@@ -46,9 +46,11 @@ public class RobotContainer {
   public static double getForwardArcadeDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.FORWARD_ARCADE_DRIVE_AXIS_ID);
   }
+
   public static double getAngleArcadeDriveAxis() {
     return X3D_RIGHT.getRawAxis(Constants.ANGLE_ARCADE_DRIVE_AXIS_ID);
   }
+
   public static double getClimberAxis() {
     return GAMEPAD.getRawAxis(Constants.CLIMB_AXIS_ID);
   }
@@ -56,6 +58,10 @@ public class RobotContainer {
   // Create and assign default buttons
   public static JoystickButton toggleArcadeDriveButton = new JoystickButton(X3D_RIGHT, Constants.TOGGLE_ARCADE_DRIVE_BUTOON_ID);
   public static JoystickButton driveStraightButton = new JoystickButton(X3D_RIGHT, Constants.DRIVE_STRAIGHT_BUTTON_ID);
+  public static JoystickButton testButton = new JoystickButton(X3D_RIGHT, Constants.TEST_BUTTON_ID);
+  public static JoystickButton launchButton = new JoystickButton(X3D_RIGHT, Constants.LAUNCH_BUTTON_ID);
+  public static JoystickButton intakeButton = new JoystickButton(X3D_RIGHT, Constants.INTAKE_BUTTON_ID);
+  public static JoystickButton semiAutoButton = new JoystickButton(X3D_RIGHT, Constants.SEMI_AUTO_BUTTON_ID);
 
 
   /**
@@ -75,7 +81,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
     toggleArcadeDriveButton.whenPressed(new ToggleArcadeDriveCommand());
     driveStraightButton.whileHeld(new DriveStraightCommand());
-
+    // testButton.whileHeld(new WaitTestCommand());
+    intakeButton.whileHeld(new IntakeCommand());
+    // launchButton.whileHeld(new FireCommand());
+    // semiAutoButton.whileHeld(new SemiAutoFireCommand());
   }
 
 

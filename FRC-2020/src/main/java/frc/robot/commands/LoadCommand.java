@@ -7,13 +7,15 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import frc.robot.Robot;
 
-
-public class DriveStraightCommand extends CommandBase {
-  public DriveStraightCommand() {
+public class LoadCommand extends CommandBase {
+  /**
+   * Creates a new LoadCommand.
+   */
+  public LoadCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -25,14 +27,14 @@ public class DriveStraightCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.brakeOrCoastMotors(false, false);
-    Robot.driveSubsystem.setLeftMotors(0.5);
-    Robot.driveSubsystem.setRightMotors(-0.5);
+    SmartDashboard.putNumber("Load Motor", Robot.manipulatorsubsystem.getLoadMotor());
+    Robot.manipulatorsubsystem.setLoadMotor(.5);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.manipulatorsubsystem.stopLoadMotor();
   }
 
   // Returns true when the command should end.

@@ -8,12 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import frc.robot.Robot;
 
-
-public class DriveStraightCommand extends CommandBase {
-  public DriveStraightCommand() {
+public class ClearCommand extends CommandBase {
+  /**
+   * Creates a new ClearCommand.
+   */
+  public ClearCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -25,14 +26,13 @@ public class DriveStraightCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.brakeOrCoastMotors(false, false);
-    Robot.driveSubsystem.setLeftMotors(0.5);
-    Robot.driveSubsystem.setRightMotors(-0.5);
+    Robot.manipulatorsubsystem.setLoadMotor(-1);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    Robot.manipulatorsubsystem.stopLoadMotor();
   }
 
   // Returns true when the command should end.

@@ -1,5 +1,6 @@
 package frc.robot.teamlibraries;
 
+
 public class DriveInputPipeline {
     // An array containing all of the values
     // for standard tank drive, 0:left and 1:right
@@ -19,10 +20,6 @@ public class DriveInputPipeline {
     // Where the bell curve crosses the x-axis
     // When to cutoff the bell curve function and switch to just 0
     private double magCutoff;
-
-
-
-
 
     public enum InputMapModes {
         IMM_LINEAR, IMM_SQUARE, IMM_CUBE, IMM_S
@@ -44,9 +41,7 @@ public class DriveInputPipeline {
         values = new double[]{valueA, valueB};
     }
 
-    public void setValues(double[] values) {
-        this.values = values;
-    }
+    public void setValues(double[] values) { this.values = values; }
 
     // Set the mag cutoff value
     private void setMagCutoff() {
@@ -55,16 +50,12 @@ public class DriveInputPipeline {
     }
     
     // Getters
-    public double[] getValues() {
-        return values;
-    }
-
-
+    public double[] getValues() { return values; }
 
 
 
     // Input map ---------------------------------------------
-    
+
     // Apply a custom curve function to the input
     private double inputMap(double value, InputMapModes inputMapMode) {
         switch(inputMapMode) {
@@ -75,14 +66,12 @@ public class DriveInputPipeline {
                 value = Math.pow(value, 3);
                 break;
             case IMM_S: // apply an s shaped curve to the input
-                // TODO
                 break;
             default: // apply no curve
                 //DriverStation.reportWarning("Using the default input map for some reason, use a different one or fix this ya big dum dum.", false);
             case IMM_LINEAR: // linear is also the defalt, but, without warning messages
                 // nothing happens yo, 1:1 mapping
         }
-    
         return value;
     }
 
@@ -102,8 +91,6 @@ public class DriveInputPipeline {
 
 
 
-  
-
     // Deadzones ---------------------------------------------
 
     // apply a deadzone to the inputs
@@ -120,10 +107,7 @@ public class DriveInputPipeline {
     }
 
 
-
-
-
-    // magnetic inputs ---------------------------------------
+    // Magnetic inputs ---------------------------------------
 
     // A fancy function that causes the left and right values to snap to the average
     // when they are close to the average

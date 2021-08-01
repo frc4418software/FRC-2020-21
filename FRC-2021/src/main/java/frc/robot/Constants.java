@@ -17,7 +17,8 @@ package frc.robot;
  */
 public final class Constants {
     // Controller abstractions
-  private static final int //GAMEPAD_AXIS_LEFT_X = 0, // Gamepad axis
+  private static final int
+  //GAMEPAD_AXIS_LEFT_X = 0, // Gamepad axis
   GAMEPAD_AXIS_LEFT_Y = 1,
   /*GAMEPAD_AXIS_RIGHT_X = 4,
   GAMEPAD_AXIS_RIGHT_Y = 5,
@@ -37,23 +38,24 @@ public final class Constants {
   X3D_AXIS_PITCH = 1, // X3d axis
   X3D_AXIS_ROLL = 0,
   /*X3D_AXIS_YAW = 2,
-  X3D_AXIS_OTHER = 3,
-  X3D_BUTTON_TRIGGER = 1, // X3d buttons
-  */X3D_BUTTON_GRIP = 2,/*
+  X3D_AXIS_OTHER = 3,*/
+  // X3D_BUTTON_TRIGGER = 1, // X3d buttons
+  X3D_BUTTON_GRIP = 2,
   X3D_BUTTON_3 = 3,
-  X3D_BUTTON_4 = 4,*/
-  X3D_BUTTON_5 = 5//,
-  /* X3D_BUTTON_6 = 6,
-  X3D_BUTTON_7 = 7,
-  X3D_BUTTON_8 = 8,
-  X3D_BUTTON_9 = 9,
-  X3D_BUTTON_10 = 10,
-  X3D_BUTTON_11 = 11,
-  X3D_BUTTON_12 = 12*/;
+  X3D_BUTTON_4 = 4,
+  X3D_BUTTON_5 = 5,
+  X3D_BUTTON_6 = 6,
+  X3D_BUTTON_7 = 7
+  //X3D_BUTTON_8 = 8,
+  //X3D_BUTTON_9 = 9,
+  //X3D_BUTTON_10 = 10,
+  //X3D_BUTTON_11 = 11,
+  /*X3D_BUTTON_12 = 12*/;
 
 
 // Controller IDs
-public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
+public static final int
+  X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   X3D_RIGHT_JOYSTICK_ID = 1,
   GAMEPAD_JOYSTICK_ID = 2,
   LEFT_TANK_DRIVE_AXIS_ID = X3D_AXIS_PITCH, // Tank drive axis
@@ -62,36 +64,49 @@ public static final int X3D_LEFT_JOYSTICK_ID = 0, // Joysticks IDs
   ANGLE_ARCADE_DRIVE_AXIS_ID = X3D_AXIS_ROLL,
   TOGGLE_ARCADE_DRIVE_BUTOON_ID = X3D_BUTTON_5,
   DRIVE_STRAIGHT_BUTTON_ID = X3D_BUTTON_GRIP,
+  LAUNCH_BUTTON_ID = X3D_BUTTON_3, //Manipulator buttons
+  SEMI_AUTO_BUTTON_ID = X3D_BUTTON_4,
+  TEST_BUTTON_ID = X3D_BUTTON_7,
+  //PIVOT_BUTTON_ID = X3D_BUTTON_12,
+  INTAKE_BUTTON_ID = X3D_BUTTON_6,
   CLIMB_AXIS_ID = GAMEPAD_AXIS_LEFT_Y;
 
 // Drive Subsystem IDs
-public static final int DRIVE_LEFT_A_TALON_SRX_ID = 10, 
-  DRIVE_LEFT_B_TALON_SRX_ID = 11,
-  DRIVE_RIGHT_A_TALON_SRX_ID = 20, 
-  DRIVE_RIGHT_B_TALON_SRX_ID = 21,
-  DRIVE_LEFT_ENCODER_CHANNELA_ID = 6, 
-  DRIVE_LEFT_ENCODER_CHANNELB_ID = 7, 
-  DRIVE_RIGHT_ENCODER_CHANNELA_ID = 8, 
-  DRIVE_RIGHT_ENCODER_CHANNELB_ID = 9, 
-  DRIVE_GYRO_ID = 0,
-  DRIVE_FRONT_DISTANCE_PING_ID = 10, 
-  DRIVE_FRONT_DISTANCE_ECHO_ID = 11, 
-  DRIVE_BACK_DISTANCE_PING_ID = 12, 
-  DRIVE_BACK_DISTANCE_ECHO_ID = 13;
+public static final int
+  DRIVE_LEFT_A_TALON_SRX_ID = 10,
+  DRIVE_LEFT_B_TALON_SRX_ID = 2,
+  DRIVE_RIGHT_A_TALON_SRX_ID = 6,
+  DRIVE_RIGHT_B_TALON_SRX_ID = 5;
+  // DRIVE_LEFT_ENCODER_CHANNELA_ID = 6,
+  // DRIVE_LEFT_ENCODER_CHANNELB_ID = 7,
+  // DRIVE_RIGHT_ENCODER_CHANNELA_ID = 8,
+  // DRIVE_RIGHT_ENCODER_CHANNELB_ID = 9,
+  // DRIVE_GYRO_ID = 0,
+  // DRIVE_FRONT_DISTANCE_PING_ID = 10,
+  // DRIVE_FRONT_DISTANCE_ECHO_ID = 11,
+  // DRIVE_BACK_DISTANCE_PING_ID = 12,
+  // DRIVE_BACK_DISTANCE_ECHO_ID = 13;
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
+public static final int DRIVE_ENCODER_DECODING_SCALE_FACTOR = 2;
+
+// Manipulator Subsystem IDs
+public static final int
+  MAN_FIRE_TOP_TALONSRX_ID = 3,
+  MAN_FIRE_BOTTOM_TALONSRX_ID = 1,
+
+  MAN_INTAKE_TOP_TALONSRX_ID = 11,
+  MAN_INTAKE_BOTTOM_TALONSRX_ID = 8;
 
 // Climb Subsystem IDs
-public static final int CLIMBER_ENCODER_CHANNELA_ID = 2, 
-  CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
-  CLIMBER_TALON_SRX_ID = 30;
+public static final int
+  // CLIMBER_ENCODER_CHANNELA_ID = 2,
+  // CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3,
+  CLIMBER_TALONSRX_ID = 30;
 //public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = ;          tbd
 
 // RIO Post Info
-public static int[] expectedTalonIDs = {DRIVE_LEFT_A_TALON_SRX_ID, DRIVE_LEFT_B_TALON_SRX_ID, DRIVE_RIGHT_A_TALON_SRX_ID, 
-                DRIVE_RIGHT_B_TALON_SRX_ID};
-public static int[] expectedDIOEncoders = {DRIVE_LEFT_ENCODER_CHANNELA_ID,DRIVE_LEFT_ENCODER_CHANNELB_ID, DRIVE_RIGHT_A_TALON_SRX_ID,
-                    DRIVE_RIGHT_B_TALON_SRX_ID};
-public static int expectedGyro = DRIVE_GYRO_ID;
-public static int[] expectedDIOUltrasonic = {DRIVE_FRONT_DISTANCE_PING_ID,DRIVE_FRONT_DISTANCE_ECHO_ID,DRIVE_BACK_DISTANCE_PING_ID,
-                       DRIVE_BACK_DISTANCE_ECHO_ID};
+public static int[] expectedTalonIDs = {DRIVE_LEFT_A_TALON_SRX_ID, DRIVE_LEFT_B_TALON_SRX_ID, DRIVE_RIGHT_A_TALON_SRX_ID, DRIVE_RIGHT_B_TALON_SRX_ID};
+// public static int[] expectedDIOEncoders = {DRIVE_LEFT_ENCODER_CHANNELA_ID,DRIVE_LEFT_ENCODER_CHANNELB_ID, DRIVE_RIGHT_A_TALON_SRX_ID, DRIVE_RIGHT_B_TALON_SRX_ID};
+// public static int expectedGyro = DRIVE_GYRO_ID;
+// public static int[] expectedDIOUltrasonic = {DRIVE_FRONT_DISTANCE_PING_ID,DRIVE_FRONT_DISTANCE_ECHO_ID,DRIVE_BACK_DISTANCE_PING_ID, DRIVE_BACK_DISTANCE_ECHO_ID};
 }

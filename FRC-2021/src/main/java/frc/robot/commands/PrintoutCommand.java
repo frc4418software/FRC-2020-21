@@ -7,27 +7,40 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.Robot;
 
 
-public class DriveStraightCommand extends CommandBase {
-  public DriveStraightCommand() {
+public class PrintoutCommand extends CommandBase {
+  public PrintoutCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.driveSubsystem.brakeOrCoastMotors(false, false);
-    Robot.driveSubsystem.setLeftMotors(0.5);
-    Robot.driveSubsystem.setRightMotors(-0.5);
+    SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftPercent());
+    SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightPercent());
+
+    SmartDashboard.putNumber("Left Distance", Robot.driveSubsystem.getLeftDistance());
+    SmartDashboard.putNumber("Right Distance", Robot.driveSubsystem.getRightDistance());
+
+    SmartDashboard.putNumber("Left RPM", Robot.driveSubsystem.getLeftDistance());
+    SmartDashboard.putNumber("Right RPM", Robot.driveSubsystem.getRightDistance());
+
+    // SmartDashboard.putNumber("Gyro", Robot.sensorsSubsystem.getGyroValue());
+
+    // SmartDashboard.putNumber("Accel X", Robot.sensorsSubsystem.getDriveAccelX());
+    // SmartDashboard.putNumber("Accel Y", Robot.sensorsSubsystem.getDriveAccelY());
+    // SmartDashboard.putNumber("Accel Z", Robot.sensorsSubsystem.getDriveAccelZ());  
   }
 
   // Called once the command ends or is interrupted.
