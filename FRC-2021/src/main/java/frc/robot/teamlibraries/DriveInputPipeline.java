@@ -58,37 +58,37 @@ public class DriveInputPipeline {
 	// Input map ---------------------------------------------
 
 	// Apply a custom curve function to the input
-	private double inputMap(double value, InputMapModes inputMapMode) {
-		switch(inputMapMode) {
-			case IMM_SQUARE: // square the input
-				value = Math.pow(value, 2);
-				break;
-			case IMM_CUBE: // cube the input
-				value = Math.pow(value, 3);
-				break;
-			case IMM_S: // apply an s shaped curve to the input
-				break;
-			default: // apply no curve
-				//DriverStation.reportWarning("Using the default input map for some reason, use a different one or fix this ya big dum dum.", false);
-			case IMM_LINEAR: // linear is also the defalt, but, without warning messages
-				// nothing happens yo, 1:1 mapping
-		}
-		return value;
-	}
+	// private double inputMap(double value, InputMapModes inputMapMode) {
+	// 	switch (inputMapMode) {
+	// 		case IMM_SQUARE: // square the input
+	// 			value = Math.pow(value, 2);
+	// 			break;
+	// 		case IMM_CUBE: // cube the input
+	// 			value = Math.pow(value, 3);
+	// 			break;
+	// 		case IMM_S: // apply an s shaped curve to the input
+	// 			break;
+	// 		default: // apply no curve
+	// 			//DriverStation.reportWarning("Using the default input map for some reason, use a different one or fix this ya big dum dum.", false);
+	// 		case IMM_LINEAR: // linear is also the defalt, but, without warning messages
+	// 			// nothing happens yo, 1:1 mapping
+	// 	}
+	// 	return value;
+	// }
 
 	// Allow for two values to be mapped at once using different mappings
-	public void inputMapWrapper(InputMapModes inputMapModeFor0, InputMapModes inputMapModeFor1) {
-		// apply the map for the first value
-		values[0] = inputMap(values[0], inputMapModeFor0);
+	// public void inputMapWrapper(InputMapModes inputMapModeFor0, InputMapModes inputMapModeFor1) {
+	// 	// apply the map for the first value
+	// 	inputMap(values[0], inputMapModeFor0);
 
-		// apply the map for the second value
-		values[1] = inputMap(values[1], inputMapModeFor1);
-	}
+	// 	// apply the map for the second value
+	// 	inputMap(values[1], inputMapModeFor1);
+	// }
 
 	// Allow for two values to be mapped at once using the same mapping
-	public void inputMapWrapper(InputMapModes inputMapModeForBoth) {
-		inputMapWrapper(inputMapModeForBoth, inputMapModeForBoth);
-	}
+	// public void inputMapWrapper(InputMapModes inputMapModeForBoth) {
+	// 	inputMapWrapper(inputMapModeForBoth, inputMapModeForBoth);
+	// }
 
 
 

@@ -118,7 +118,7 @@ public class DriveSubsystem extends SubsystemBase {
 
 		// do fancy array manipulation stuffs
 		DriveInputPipeline dip = new DriveInputPipeline(values);
-		dip.inputMapWrapper(DriveInputPipeline.InputMapModes.IMM_SQUARE);
+		// dip.inputMapWrapper(DriveInputPipeline.InputMapModes.IMM_SQUARE);
 		dip.magnetizeTankDrive();
 		dip.applyDeadzones();
 		values = dip.getValues();
@@ -126,7 +126,7 @@ public class DriveSubsystem extends SubsystemBase {
 		autoBreakTankDrive(values);
 
 		// use the modified arrays to drive the robot
-		robotDrive.tankDrive(values[0], values[1]);
+		robotDrive.tankDrive(-values[0], -values[1]);
 	}
 
 	// a wrapper around arcade drive that sets stuff up to be better optimized for teleop controll
@@ -138,7 +138,7 @@ public class DriveSubsystem extends SubsystemBase {
 		/*values = inputMapWrapper(values, InputMapModes.IMM_SQUARE, InputMapModes.IMM_SQUARE);
 		values = deadzoneTankDrive(values);*/
 		DriveInputPipeline dip = new DriveInputPipeline(values);
-		dip.inputMapWrapper(DriveInputPipeline.InputMapModes.IMM_CUBE, DriveInputPipeline.InputMapModes.IMM_CUBE);
+		// dip.inputMapWrapper(DriveInputPipeline.InputMapModes.IMM_CUBE, DriveInputPipeline.InputMapModes.IMM_CUBE);
 		dip.applyDeadzones();
 		values = dip.getValues();
 		
