@@ -149,14 +149,11 @@ public class DriveSubsystem extends SubsystemBase {
 	}
 
 	public void toggleDriveMode() {
-		
+		arcadeDrive = !arcadeDrive;
 	}
 
-	// set the robot to arcade drive or not
-	public void setArcadeDrive(boolean mode) { arcadeDrive = mode; }
-
 	// get whether the robot is in arcade drive mode or not
-	public boolean isArcadeDrive() { return arcadeDrive; }
+	public boolean usingArcadeDrive() { return arcadeDrive; }
 
 	// ----------------------------------------------------------
 
