@@ -73,7 +73,6 @@ public static final int
 
 // Drive Subsystem IDs
 public static final int
-<<<<<<< Updated upstream
   DRIVE_LEFT_A_TALON_SRX_ID = 10, 
   DRIVE_LEFT_B_TALON_SRX_ID = 2,
   DRIVE_RIGHT_A_TALON_SRX_ID = 6, 
@@ -87,21 +86,6 @@ public static final int
   // DRIVE_FRONT_DISTANCE_ECHO_ID = 11, 
   // DRIVE_BACK_DISTANCE_PING_ID = 12, 
   // DRIVE_BACK_DISTANCE_ECHO_ID = 13;
-=======
-	DRIVE_LEFT_A_TALON_SRX_ID = 10,
-	DRIVE_LEFT_B_TALON_SRX_ID = 2,
-	DRIVE_RIGHT_A_TALON_SRX_ID = 6,
-	DRIVE_RIGHT_B_TALON_SRX_ID = 5;
-	// DRIVE_LEFT_ENCODER_CHANNELA_ID = 6,
-	// DRIVE_LEFT_ENCODER_CHANNELB_ID = 7,
-	// DRIVE_RIGHT_ENCODER_CHANNELA_ID = 8,
-	// DRIVE_RIGHT_ENCODER_CHANNELB_ID = 9,
-	// DRIVE_GYRO_ID = 0,
-	// DRIVE_FRONT_DISTANCE_PING_ID = 10,
-	// DRIVE_FRONT_DISTANCE_ECHO_ID = 11,
-	// DRIVE_BACK_DISTANCE_PING_ID = 12,
-	// DRIVE_BACK_DISTANCE_ECHO_ID = 13;
->>>>>>> Stashed changes
 public static final double DRIVE_ENCODER_DISTANCE_PER_PULSE  = (15.24 * Math.PI) / 256; // diameter * pi = circumference. circumference / 256 = distance per pulse
 public static final int DRIVE_ENCODER_DECODING_SCALE_FACTOR = 2;
 
@@ -115,15 +99,9 @@ public static final int
 
 // Climb Subsystem IDs
 public static final int
-<<<<<<< Updated upstream
   // CLIMBER_ENCODER_CHANNELA_ID = 2, 
   // CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3, 
   CLIMBER_TALONSRX_ID = 30;
-=======
-	// CLIMBER_ENCODER_CHANNELA_ID = 2,
-	// CLIMBER_FRONT_ENCODER_CHANNELB_ID = 3,
-	CLIMBER_TALONSRX_ID = 30;
->>>>>>> Stashed changes
 //public static final double CLIMBER_ENCODER_DISTANCE_PER_PULSE = ;          tbd
 
 // RIO Post Info
