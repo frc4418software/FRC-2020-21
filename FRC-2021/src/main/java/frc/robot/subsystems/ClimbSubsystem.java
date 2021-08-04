@@ -17,22 +17,22 @@ import frc.robot.Constants;
 
 
 public class ClimbSubsystem extends SubsystemBase {
-  private WPI_TalonSRX climbMotor;
+	private WPI_TalonSRX climbMotor;
 
-  private Encoder climbEncoder;
-  
-  public ClimbSubsystem() {
-    climbMotor = new WPI_TalonSRX(Constants.CLIMBER_TALONSRX_ID);
-  }
+	private Encoder climbEncoder;
+	
+	public ClimbSubsystem() {
+		climbMotor = new WPI_TalonSRX(Constants.CLIMBER_TALONSRX_ID);
+	}
 
-  public void SetClimb(double motorValue) {
-    climbMotor.set(ControlMode.PercentOutput, motorValue);
-  }
+	public void SetClimb(double motorValue) {
+		climbMotor.set(ControlMode.PercentOutput, motorValue);
+	}
 
-  public Encoder getClimbEncoder() { return climbEncoder; }
+	public Encoder getClimbEncoder() { return climbEncoder; }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+	@Override
+	public void periodic() {
+		// This method will be called once per scheduler run
+	}
 }

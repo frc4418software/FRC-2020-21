@@ -23,68 +23,68 @@ import frc.robot.subsystems.ManipulatorSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-  private Command m_autonomousCommand;
-  private RobotContainer m_robotContainer;
+	private Command m_autonomousCommand;
+	private RobotContainer m_robotContainer;
 
-  public static DriveSubsystem driveSubsystem = new DriveSubsystem();
-  public static ClimbSubsystem climbSubsystem = new ClimbSubsystem();
-  public static ManipulatorSubsystem manipulatorsubsystem = new ManipulatorSubsystem();
-  // public static SensorsSubsystem sensorsSubsystem = new SensorsSubsystem();
+	public static DriveSubsystem driveSubsystem = new DriveSubsystem();
+	public static ClimbSubsystem climbSubsystem = new ClimbSubsystem();
+	public static ManipulatorSubsystem manipulatorsubsystem = new ManipulatorSubsystem();
+	// public static SensorsSubsystem sensorsSubsystem = new SensorsSubsystem();
 
 
-  // run when robot is started, put initialization code here
-  @Override
-  public void robotInit() {
-    // create RobotContainer. Does our button bindings & puts autonomous chooser on dashboard
-    m_robotContainer = new RobotContainer();
-  }
+	// run when robot is started, put initialization code here
+	@Override
+	public void robotInit() {
+		// create RobotContainer. Does our button bindings & puts autonomous chooser on dashboard
+		m_robotContainer = new RobotContainer();
+	}
 
-  // called every robot packet (good for diagnostics), after mode-specific periodics
-  // runs before LiveWindow & SmartDashboard updates
-  @Override
-  public void robotPeriodic() {
-    // runs base periodic functions. Do not delete/comment out
-    CommandScheduler.getInstance().run();
-  }
+	// called every robot packet (good for diagnostics), after mode-specific periodics
+	// runs before LiveWindow & SmartDashboard updates
+	@Override
+	public void robotPeriodic() {
+		// runs base periodic functions. Do not delete/comment out
+		CommandScheduler.getInstance().run();
+	}
 
-  @Override
-  public void disabledInit() {}
+	@Override
+	public void disabledInit() {}
 
-  @Override
-  public void disabledPeriodic() {}
+	@Override
+	public void disabledPeriodic() {}
 
-  // Runs autonomous command selected by {@link RobotContainer} class
-  @Override
-  public void autonomousInit() {
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+	// Runs autonomous command selected by {@link RobotContainer} class
+	@Override
+	public void autonomousInit() {
+		m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
-    // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.schedule();
-    }
-  }
+		// schedule the autonomous command (example)
+		if (m_autonomousCommand != null) {
+			m_autonomousCommand.schedule();
+		}
+	}
 
-  @Override
-  public void autonomousPeriodic() {}
+	@Override
+	public void autonomousPeriodic() {}
 
-  @Override
-  public void teleopInit() {
-    // stops auto before teleop starts running
-    // comment out to continue auto as another command starts
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
-  }
+	@Override
+	public void teleopInit() {
+		// stops auto before teleop starts running
+		// comment out to continue auto as another command starts
+		if (m_autonomousCommand != null) {
+			m_autonomousCommand.cancel();
+		}
+	}
 
-  @Override
-  public void teleopPeriodic() {}
+	@Override
+	public void teleopPeriodic() {}
 
-  @Override
-  public void testInit() {
-    // Cancels all running commands at the start of test mode.
-    CommandScheduler.getInstance().cancelAll();
-  }
+	@Override
+	public void testInit() {
+		// Cancels all running commands at the start of test mode.
+		CommandScheduler.getInstance().cancelAll();
+	}
 
-  @Override
-  public void testPeriodic() {}
+	@Override
+	public void testPeriodic() {}
 }

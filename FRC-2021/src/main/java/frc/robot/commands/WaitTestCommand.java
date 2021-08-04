@@ -12,42 +12,42 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
 public class WaitTestCommand extends CommandBase {
-  private boolean testStart = false;
-  private boolean testFinish = false;
+	private boolean testStart = false;
+	private boolean testFinish = false;
 
-  public WaitTestCommand() {
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
+	public WaitTestCommand() {
+		// Use addRequirements() here to declare subsystem dependencies.
+	}
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-  }
+	// Called when the command is initially scheduled.
+	@Override
+	public void initialize() {
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    SmartDashboard.putBoolean("Start", testStart);
-    SmartDashboard.putBoolean("Finish", testFinish);
-    testStart = true;
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    testFinish = true;
-  }
+	// Called every time the scheduler runs while the command is scheduled.
+	@Override
+	public void execute() {
+		SmartDashboard.putBoolean("Start", testStart);
+		SmartDashboard.putBoolean("Finish", testFinish);
+		testStart = true;
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		testFinish = true;
+	}
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-    testStart = false;
-    testFinish = false;
-  }
+	// Called once the command ends or is interrupted.
+	@Override
+	public void end(boolean interrupted) {
+		testStart = false;
+		testFinish = false;
+	}
 
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+	// Returns true when the command should end.
+	@Override
+	public boolean isFinished() {
+		return false;
+	}
 }

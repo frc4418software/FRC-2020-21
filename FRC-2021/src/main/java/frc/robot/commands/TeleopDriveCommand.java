@@ -53,4 +53,43 @@ public class TeleopDriveCommand extends CommandBase {
   public boolean isFinished() {
     return false;
   }
+	public TeleopDriveCommand() {
+		// Use addRequirements() here to declare subsystem dependencies
+		addRequirements(Robot.driveSubsystem);
+	}
+
+	// Called when the command is initially scheduled.
+	@Override
+
+	public void initialize() {
+
+	}
+
+	// Called every time the scheduler runs while the command is scheduled.
+	@Override
+	public void execute() {
+		if(Robot.driveSubsystem.isArcadeDrive()) {
+			Robot.driveSubsystem.teleopArcadeDriveWrapper(
+				RobotContainer.getForwardArcadeDriveAxis(), // forward
+				RobotContainer.getAngleArcadeDriveAxis()  // angle
+			);
+		} else {
+			Robot.driveSubsystem.teleopTankDriveWrapper(
+				RobotContainer.getLeftTankDriveAxis(),  // left
+				RobotContainer.getRightTankDriveAxis()  // right
+			);
+		}
+	}
+
+	// Called once the command ends or is interrupted.
+	@Override
+	public void end(boolean interrupted) {
+		Robot.driveSubsystem.stopDrive();
+	}
+
+	// Returns true when the command should end.
+	@Override
+	public boolean isFinished() {
+		return false;
+	}
 }

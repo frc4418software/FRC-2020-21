@@ -15,44 +15,44 @@ import frc.robot.Robot;
 
 
 public class FireCommand extends CommandBase {
-  public FireCommand() {
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
+	public FireCommand() {
+		// Use addRequirements() here to declare subsystem dependencies.
+	}
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-  }
+	// Called when the command is initially scheduled.
+	@Override
+	public void initialize() {
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    SmartDashboard.putNumber("Top Fire", Robot.manipulatorsubsystem.getTopFireMotor());
-    SmartDashboard.putNumber("Bottom Fire", Robot.manipulatorsubsystem.getBottomFireMotor());
-    /*if(Robot.manipulatorsubsystem.launchSpin == false) {
-      for(int i=0; i <= 10; i++){
-        Robot.manipulatorsubsystem.setRightFireMotor(i*10);
-        Robot.manipulatorsubsystem.setLeftFireMotor(-i*10);
-        WaitCommand(0.2);
-      }
-      Robot.manipulatorsubsystem.launchSpin = true;
-    }*/
-      //interval command to be added later
-    
-    Robot.manipulatorsubsystem.setBottomFireMotor(-.7);
-    Robot.manipulatorsubsystem.setTopFireMotor(-.7);
-  }
+	// Called every time the scheduler runs while the command is scheduled.
+	@Override
+	public void execute() {
+		SmartDashboard.putNumber("Top Fire", Robot.manipulatorsubsystem.getTopFireMotor());
+		SmartDashboard.putNumber("Bottom Fire", Robot.manipulatorsubsystem.getBottomFireMotor());
+		/*if(Robot.manipulatorsubsystem.launchSpin == false) {
+			for(int i=0; i <= 10; i++){
+				Robot.manipulatorsubsystem.setRightFireMotor(i*10);
+				Robot.manipulatorsubsystem.setLeftFireMotor(-i*10);
+				WaitCommand(0.2);
+			}
+			Robot.manipulatorsubsystem.launchSpin = true;
+		}*/
+			//interval command to be added later
+		
+		Robot.manipulatorsubsystem.setBottomFireMotor(-.7);
+		Robot.manipulatorsubsystem.setTopFireMotor(-.7);
+	}
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-    Robot.manipulatorsubsystem.setBottomFireMotor(0.0);
-    Robot.manipulatorsubsystem.setTopFireMotor(0.0);
-  }
+	// Called once the command ends or is interrupted.
+	@Override
+	public void end(boolean interrupted) {
+		Robot.manipulatorsubsystem.setBottomFireMotor(0.0);
+		Robot.manipulatorsubsystem.setTopFireMotor(0.0);
+	}
 
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+	// Returns true when the command should end.
+	@Override
+	public boolean isFinished() {
+		return false;
+	}
 }

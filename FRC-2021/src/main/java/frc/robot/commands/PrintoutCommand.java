@@ -14,43 +14,43 @@ import frc.robot.Robot;
 
 
 public class PrintoutCommand extends CommandBase {
-  public PrintoutCommand() {
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
+	public PrintoutCommand() {
+		// Use addRequirements() here to declare subsystem dependencies.
+	}
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
+	// Called when the command is initially scheduled.
+	@Override
+	public void initialize() {
 
-  }
+	}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftPercent());
-    SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightPercent());
+	// Called every time the scheduler runs while the command is scheduled.
+	@Override
+	public void execute() {
+		SmartDashboard.putNumber("Left Motor", Robot.driveSubsystem.getLeftPercent());
+		SmartDashboard.putNumber("Right Motor", Robot.driveSubsystem.getRightPercent());
 
-    SmartDashboard.putNumber("Left Distance", Robot.driveSubsystem.getLeftDistance());
-    SmartDashboard.putNumber("Right Distance", Robot.driveSubsystem.getRightDistance());
+		SmartDashboard.putNumber("Left Distance", Robot.driveSubsystem.getLeftDistance());
+		SmartDashboard.putNumber("Right Distance", Robot.driveSubsystem.getRightDistance());
 
-    SmartDashboard.putNumber("Left RPM", Robot.driveSubsystem.getLeftDistance());
-    SmartDashboard.putNumber("Right RPM", Robot.driveSubsystem.getRightDistance());
+		SmartDashboard.putNumber("Left RPM", Robot.driveSubsystem.getLeftDistance());
+		SmartDashboard.putNumber("Right RPM", Robot.driveSubsystem.getRightDistance());
 
-    // SmartDashboard.putNumber("Gyro", Robot.sensorsSubsystem.getGyroValue());
+		// SmartDashboard.putNumber("Gyro", Robot.sensorsSubsystem.getGyroValue());
 
-    // SmartDashboard.putNumber("Accel X", Robot.sensorsSubsystem.getDriveAccelX());
-    // SmartDashboard.putNumber("Accel Y", Robot.sensorsSubsystem.getDriveAccelY());
-    // SmartDashboard.putNumber("Accel Z", Robot.sensorsSubsystem.getDriveAccelZ());  
-  }
+		// SmartDashboard.putNumber("Accel X", Robot.sensorsSubsystem.getDriveAccelX());
+		// SmartDashboard.putNumber("Accel Y", Robot.sensorsSubsystem.getDriveAccelY());
+		// SmartDashboard.putNumber("Accel Z", Robot.sensorsSubsystem.getDriveAccelZ());  
+	}
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-  }
+	// Called once the command ends or is interrupted.
+	@Override
+	public void end(boolean interrupted) {
+	}
 
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+	// Returns true when the command should end.
+	@Override
+	public boolean isFinished() {
+		return false;
+	}
 }
